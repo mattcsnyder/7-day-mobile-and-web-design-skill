@@ -1,8 +1,14 @@
 # 7-Day Web Design Skill System
 
-Design faster, hand off more clearly, and keep AI-assisted product work structured from day one through developer delivery.
+Get a website plan that looks good on desktop and mobile without the usual confusion, delays, or back-and-forth.
 
-This repository is the home of the `7-day web design` skill system: a marketable, repeatable design workflow packaged for Claude, Codex, and Cursor, with both a generalized web-design skill and a Next.js-specific specialization.
+The `7-day web design` skill system is built for people who want a clear path from idea to website without needing to be a designer or developer first. It turns a vague website goal into a structured seven-day process that produces a clearer layout, stronger messaging, better page planning, and a developer-ready handoff.
+
+Instead of guessing what pages you need, what should go on mobile, what should be different on desktop, how people sign up, where authentication belongs, how a paid paywall should work, or how the user moves from a landing page into the real platform, this system helps turn all of that into a concrete output you can actually use.
+
+The final result is not just inspiration. It is a practical website and platform plan with public-facing pages, authentication flows, paid-access and paywall concepts, key user states, design direction, and handoff guidance that makes the next step much easier whether you build it yourself, use AI tools, or hand it to a developer.
+
+Soon To Be Available on [AgentPowers](https://agentpowers.ai).
 
 ## Sponsorship
 
@@ -10,14 +16,14 @@ If this work helps your team build stronger design systems, clearer handoffs, or
 
 ## AgentPowers
 
-Learn more at [agentpowers.ai](https://agentpowers.ai).
+AgentPowers will be the public availability and distribution home for this skill system: [agentpowers.ai](https://agentpowers.ai).
 
 ## What’s Here
 
 | Skill | Positioning | Best For | GitHub File Links |
 | --- | --- | --- | --- |
-| `7-day-web-design` | The generalized version of the methodology. | Framework-agnostic product, feature, and redesign work on the web. | [README](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-web-design/README.md), [Core Definition](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-web-design/core/skill-definition.md), [Claude Skill](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-web-design/platforms/claude/.claude/skills/7-day-web-design/SKILL.md), [Codex Plugin Manifest](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-web-design/platforms/codex/plugins/7-day-web-design/.codex-plugin/plugin.json), [Cursor Rule](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-web-design/platforms/cursor/.cursor/rules/7-day-web-design.mdc) |
-| `7-day-nextjs-web-design` | The specialized version for products that will be built in Next.js. | App router planning, metadata, rendering boundaries, and implementation-aware handoff. | [README](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-nextjs-web-design/README.md), [Core Definition](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-nextjs-web-design/core/skill-definition.md), [Claude Skill](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-nextjs-web-design/platforms/claude/.claude/skills/7-day-nextjs-web-design/SKILL.md), [Codex Plugin Manifest](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-nextjs-web-design/platforms/codex/plugins/7-day-nextjs-web-design/.codex-plugin/plugin.json), [Cursor Rule](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-nextjs-web-design/platforms/cursor/.cursor/rules/7-day-nextjs-web-design.mdc) |
+| `7-day-web-design` | The generalized version of the methodology. | Framework-agnostic product, feature, and redesign work on the web. | [README](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/README.md), [Core Definition](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/core/skill-definition.md), [Claude Skill](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/platforms/claude/.claude/skills/7-day-web-design/SKILL.md), [Codex Plugin Manifest](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/platforms/codex/plugins/7-day-web-design/.codex-plugin/plugin.json), [Cursor Rule](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/platforms/cursor/.cursor/rules/7-day-web-design.mdc) |
+| `7-day-nextjs-web-design` | The specialized version for products that will be built in Next.js. | App router planning, metadata, rendering boundaries, and implementation-aware handoff. | [README](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/README.md), [Core Definition](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/core/skill-definition.md), [Claude Skill](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/platforms/claude/.claude/skills/7-day-nextjs-web-design/SKILL.md), [Codex Plugin Manifest](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/platforms/codex/plugins/7-day-nextjs-web-design/.codex-plugin/plugin.json), [Cursor Rule](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/platforms/cursor/.cursor/rules/7-day-nextjs-web-design.mdc) |
 
 ## Day-by-Day Plans
 
@@ -33,8 +39,8 @@ Learn more at [agentpowers.ai](https://agentpowers.ai).
 
 | Plan | Source Files |
 | --- | --- |
-| Generalized Web Design Plan | [General Skill README](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-web-design/README.md), [General Core Definition](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-web-design/core/skill-definition.md) |
-| Next.js Design Plan | [Next.js Skill README](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-nextjs-web-design/README.md), [Next.js Core Definition](/home/mattsnyder/7-day-mobile-and-web-design/skills/7-day-nextjs-web-design/core/skill-definition.md) |
+| Generalized Web Design Plan | [General Skill README](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/README.md), [General Core Definition](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/core/skill-definition.md) |
+| Next.js Design Plan | [Next.js Skill README](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/README.md), [Next.js Core Definition](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/core/skill-definition.md) |
 
 ## How to Use
 
@@ -77,10 +83,10 @@ sh scripts/export.sh
 
 | Section | Purpose | Link |
 | --- | --- | --- |
-| Skills | All skill packages and platform-specific outputs. | [skills/](/home/mattsnyder/7-day-mobile-and-web-design/skills) |
-| Plans | Design and implementation notes. | [docs/plans/](/home/mattsnyder/7-day-mobile-and-web-design/docs/plans) |
-| Scripts | Generator, validation, and export tooling. | [scripts/](/home/mattsnyder/7-day-mobile-and-web-design/scripts) |
-| Dist | Built package outputs. | [dist/](/home/mattsnyder/7-day-mobile-and-web-design/dist) |
+| Skills | All skill packages and platform-specific outputs. | [skills/](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/tree/main/skills) |
+| Plans | Design and implementation notes. | [docs/plans/](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/tree/main/docs/plans) |
+| Scripts | Generator, validation, and export tooling. | [scripts/](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/tree/main/scripts) |
+| Dist | Built package outputs. | [dist/](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/tree/main/dist) |
 
 ## Contribute
 
