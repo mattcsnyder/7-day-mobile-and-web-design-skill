@@ -53,12 +53,6 @@ AgentPowers will be the public availability and distribution home for this skill
 | route and layout planning matter early | `7-day-nextjs-web-design` |
 | metadata, auth, rendering, and data-flow decisions need to be captured as part of design | `7-day-nextjs-web-design` |
 
-Create a new skill variant with:
-
-```bash
-sh scripts/new-skill.sh "Skill Name" "Short description"
-```
-
 Validate the workspace with:
 
 ```bash
