@@ -1,0 +1,26 @@
+---
+description: A seven-day design workflow for web products that will be built in Next.js.
+globs:
+alwaysApply: false
+---
+
+# 7-Day Nextjs Web Design
+
+Use this rule when a project should follow a seven-day Next.js-aware design sprint.
+
+## Day Targets
+
+- Day 1: brief, users, constraints, runtime assumptions
+- Day 2: route tree, app router segments, layout hierarchy
+- Day 3: server versus client boundaries and data architecture
+- Day 4: route-mapped wireframes and key states
+- Day 5: visual system and component inventory
+- Day 6: accessibility, metadata, auth, and performance review
+- Day 7: Next.js-focused implementation handoff
+
+## Rules
+
+- keep route and layout structure explicit
+- make server versus client decisions visible
+- include metadata and SEO requirements
+- include auth, loading, and error-state considerations

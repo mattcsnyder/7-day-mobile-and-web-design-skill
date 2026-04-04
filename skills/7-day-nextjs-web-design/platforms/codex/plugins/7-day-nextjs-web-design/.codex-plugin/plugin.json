@@ -1,0 +1,22 @@
+{
+  "name": "7-day-nextjs-web-design",
+  "version": "0.1.0",
+  "description": "A seven-day design workflow for web products that will be built in Next.js.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "7-Day Nextjs Web Design",
+    "shortDescription": "A seven-day Next.js-focused design sprint.",
+    "longDescription": "Guides web product design from brief through developer handoff with explicit route, layout, rendering, metadata, and component planning for Next.js applications.",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Plan this product as a seven-day Next.js design sprint.",
+      "Turn this feature into a Next.js-aware design handoff.",
+      "Map the routes, layouts, and key screens for this app."
+    ],
+    "brandColor": "#1F6FEB"
+  }
+}

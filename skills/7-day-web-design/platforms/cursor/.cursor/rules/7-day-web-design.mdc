@@ -1,0 +1,26 @@
+---
+description: Run a seven-day framework-agnostic web design workflow with one concrete deliverable per day.
+globs:
+alwaysApply: false
+---
+
+# 7-Day Web Design
+
+Apply this rule when design work should be structured as a seven-day sprint for web product work without assuming a specific framework.
+
+## Day Targets
+
+- Day 1: brief, users, constraints, success criteria
+- Day 2: flows and information architecture
+- Day 3: concept comparison and chosen direction
+- Day 4: wireframes for critical paths
+- Day 5: high-fidelity UI and visual system
+- Day 6: accessibility, missing states, risk review
+- Day 7: final handoff package and implementation notes
+
+## Rules
+
+- keep the core web experience in scope
+- end each day with a named deliverable
+- state tradeoffs, assumptions, and open questions explicitly
+- do not assume a specific framework unless the user asks for one

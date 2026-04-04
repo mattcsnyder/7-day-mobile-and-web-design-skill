@@ -1,0 +1,10 @@
+{
+  "name": "7-Day Nextjs Web Design",
+  "slug": "7-day-nextjs-web-design",
+  "description": "A seven-day design workflow for web products that will be built in Next.js.",
+  "platforms": {
+    "claude": true,
+    "codex": true,
+    "cursor": true
+  }
+}

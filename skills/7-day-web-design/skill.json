@@ -1,0 +1,10 @@
+{
+  "name": "7-Day Web Design",
+  "slug": "7-day-web-design",
+  "description": "A seven-day workflow for producing framework-agnostic web design deliverables.",
+  "platforms": {
+    "claude": true,
+    "codex": true,
+    "cursor": true
+  }
+}
