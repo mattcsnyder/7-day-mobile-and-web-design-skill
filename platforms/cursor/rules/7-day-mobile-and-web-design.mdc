@@ -1,0 +1,22 @@
+# 7-Day Mobile and Web Design
+
+Apply a seven-day workflow for mobile and web design delivery.
+
+## Rules
+
+- Treat this as a seven-day design sprint, not an open-ended exploration.
+- Keep both mobile and web in scope for every major decision.
+- End each day with a concrete deliverable.
+- State assumptions, constraints, and open questions explicitly.
+- When choosing a direction, compare alternatives before committing.
+- During handoff, include developer-facing rationale and implementation notes.
+
+## Day Targets
+
+- Day 1: brief, users, constraints, success criteria
+- Day 2: flows and information architecture
+- Day 3: concept comparison and chosen direction
+- Day 4: wireframes for critical paths
+- Day 5: high-fidelity UI and visual system
+- Day 6: validation, edge cases, accessibility, risk review
+- Day 7: final package and implementation handoff

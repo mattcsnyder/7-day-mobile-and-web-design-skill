@@ -1,0 +1,6 @@
+{
+  "name": "7-day-mobile-and-web-design",
+  "version": "0.1.0",
+  "description": "Codex-ready package for a seven-day mobile and web design workflow.",
+  "entry_point": "skill/SKILL.md"
+}
