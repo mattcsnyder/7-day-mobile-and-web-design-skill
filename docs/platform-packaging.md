@@ -10,12 +10,12 @@ Platform-specific files translate that content into the packaging expected by Cl
 
 ## Claude
 
-Claude uses a skill directory centered on `SKILL.md`, with frontmatter and instruction content shaped for Claude's skill loader.
+Claude uses a project skill directory centered on `.claude/skills/<skill-name>/SKILL.md`, with frontmatter and instruction content shaped for Claude's skill loader.
 
 ## Codex
 
-Codex uses a skill or plugin-ready package that can include `SKILL.md`, package notes, and plugin metadata such as `.codex-plugin/plugin.json`.
+Codex uses a plugin-ready package rooted at `plugins/<plugin-name>/`, with `.codex-plugin/plugin.json` and optional `skills/<skill-name>/SKILL.md`.
 
 ## Cursor
 
-Cursor uses a rules or prompt package intended for project-level editor behavior, kept here as `.mdc` rules content plus package documentation.
+Cursor uses a project rules package rooted at `.cursor/rules/`, where each rule is an `.mdc` file with metadata frontmatter and instruction content.

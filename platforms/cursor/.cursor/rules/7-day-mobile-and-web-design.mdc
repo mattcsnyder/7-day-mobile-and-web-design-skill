@@ -1,0 +1,26 @@
+---
+description: Run a seven-day mobile and web design workflow with one concrete deliverable per day.
+globs:
+alwaysApply: false
+---
+
+# 7-Day Mobile and Web Design
+
+Apply this rule when design work should be structured as a seven-day sprint across both mobile and web.
+
+## Day Targets
+
+- Day 1: brief, users, constraints, success criteria
+- Day 2: flows and information architecture
+- Day 3: concept comparison and chosen direction
+- Day 4: wireframes for critical paths
+- Day 5: high-fidelity UI and visual system
+- Day 6: accessibility, missing states, risk review
+- Day 7: final handoff package and implementation notes
+
+## Rules
+
+- keep mobile and web in scope
+- end each day with a named deliverable
+- state tradeoffs, assumptions, and open questions explicitly
+- do not treat one platform as a resized copy of the other

@@ -1,0 +1,33 @@
+{
+  "name": "7-day-mobile-and-web-design",
+  "version": "0.1.0",
+  "description": "Codex-ready plugin for a seven-day mobile and web design workflow.",
+  "skills": "./skills/",
+  "author": {
+    "name": "Matt Snyder"
+  },
+  "keywords": [
+    "design",
+    "mobile",
+    "web",
+    "workflow",
+    "skills"
+  ],
+  "interface": {
+    "displayName": "7-Day Mobile and Web Design",
+    "shortDescription": "A seven-day design sprint for mobile and web work.",
+    "longDescription": "Guides product and feature design from brief through handoff with explicit deliverables for both mobile and web surfaces.",
+    "developerName": "Matt Snyder",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Run a seven-day design sprint for this product idea.",
+      "Turn this feature request into a mobile and web design plan.",
+      "Prepare a structured design handoff for this flow."
+    ],
+    "brandColor": "#1F6FEB"
+  }
+}

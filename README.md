@@ -7,9 +7,9 @@ The project uses a shared core content layer for canonical skill intent and keep
 ## Layout
 
 - `core/` stores the shared core definition, examples, and constraints
-- `platforms/claude/` stores the Claude skill package
-- `platforms/codex/` stores the Codex skill or plugin-ready package
-- `platforms/cursor/` stores the Cursor rules package
+- `platforms/claude/` stores a Claude-ready `.claude/skills/...` package
+- `platforms/codex/` stores a Codex-ready `plugins/...` package
+- `platforms/cursor/` stores a Cursor-ready `.cursor/rules/...` package
 - `scripts/` stores validation and export helpers
 - `docs/` stores planning and packaging notes
 
@@ -35,4 +35,4 @@ Run `sh scripts/validate.sh` to confirm required shared and platform files exist
 
 ## Export
 
-Run `sh scripts/export.sh` to copy deploy-ready Claude, Codex, and Cursor packages into `dist/`.
+Run `sh scripts/export.sh` to build deploy-ready Claude, Codex, and Cursor package roots into `dist/`.
