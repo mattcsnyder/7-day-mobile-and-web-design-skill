@@ -1,0 +1,16 @@
+{
+  "name": "example-skill",
+  "version": "0.1.0",
+  "description": "A sample generated skill scaffold for workspace verification.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Example Skill",
+    "shortDescription": "A sample generated skill scaffold for workspace verification.",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "brandColor": "#1F6FEB"
+  }
+}

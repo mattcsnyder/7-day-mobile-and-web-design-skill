@@ -1,38 +1,32 @@
-# 7-Day Mobile and Web Design
+# Skill Workspace
 
-This repository manages the `7-day-mobile-and-web-design` skill as separate deployable packages for Claude, Codex, and Cursor.
-
-The project uses a shared core content layer for canonical skill intent and keeps platform-specific packaging under `platforms/`.
+This repository is a multi-skill workspace for building and exporting reusable skill packages for Claude, Codex, and Cursor.
 
 ## Layout
 
-- `core/` stores the shared core definition, examples, and constraints
-- `platforms/claude/` stores a Claude-ready `.claude/skills/...` package
-- `platforms/codex/` stores a Codex-ready `plugins/...` package
-- `platforms/cursor/` stores a Cursor-ready `.cursor/rules/...` package
+- `skills/` stores one folder per skill idea
+- `skills/<slug>/core/` stores the skill definition and shared content
+- `skills/<slug>/platforms/claude/` stores a Claude-ready `.claude/skills/...` package
+- `skills/<slug>/platforms/codex/` stores a Codex-ready `plugins/...` package
+- `skills/<slug>/platforms/cursor/` stores a Cursor-ready `.cursor/rules/...` package
+- `skills/<slug>/skill.json` stores per-skill metadata
 - `scripts/` stores validation and export helpers
 - `docs/` stores planning and packaging notes
 
-## Workflow
+## Workspace Workflow
 
-Update the shared core first, then adapt platform-specific files as needed for Claude, Codex, and Cursor.
+Create new skills with `sh scripts/new-skill.sh "<Skill Name>" "<Description>"`.
 
-The skill itself is designed to guide a seven-day design sprint that moves from framing through shipped handoff material.
+Update each skill’s shared core first, then adapt its platform-specific files as needed for Claude, Codex, and Cursor.
 
-## Seven-Day Structure
+## Example Skill
 
-- Day 1: define the problem, target users, constraints, and success criteria
-- Day 2: map user flows, information architecture, and platform requirements
-- Day 3: explore concepts and interaction patterns, then choose a direction
-- Day 4: produce mobile and web wireframes for the critical paths
-- Day 5: turn the chosen direction into high-fidelity UI and a visual system
-- Day 6: validate the system, close gaps, and prepare implementation guidance
-- Day 7: package the final deliverables, rationale, and developer handoff
+The current seeded example is `skills/7-day-mobile-and-web-design/`.
 
 ## Validate
 
-Run `sh scripts/validate.sh` to confirm required shared and platform files exist.
+Run `sh scripts/validate.sh` to confirm required files exist across the workspace.
 
 ## Export
 
-Run `sh scripts/export.sh` to build deploy-ready Claude, Codex, and Cursor package roots into `dist/`.
+Run `sh scripts/export.sh` to build deploy-ready package roots into `dist/<skill-slug>/`.

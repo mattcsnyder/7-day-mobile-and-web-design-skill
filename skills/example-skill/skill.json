@@ -1,0 +1,10 @@
+{
+  "name": "Example Skill",
+  "slug": "example-skill",
+  "description": "A sample generated skill scaffold for workspace verification.",
+  "platforms": {
+    "claude": true,
+    "codex": true,
+    "cursor": true
+  }
+}

@@ -1,0 +1,9 @@
+---
+description: A sample generated skill scaffold for workspace verification.
+globs:
+alwaysApply: false
+---
+
+# Example Skill
+
+Use this rule when the current project should follow the `example-skill` workflow.
