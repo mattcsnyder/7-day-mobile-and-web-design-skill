@@ -1,6 +1,6 @@
 # 7-Day Web Design Skill System
 
-Get a website plan that looks good on desktop and mobile without the usual confusion, delays, or back-and-forth.
+Get a website plan that looks great on desktop and mobile without the usual confusion, delays, or back-and-forth.
 
 The `7-day web design` skill system is built for people who want a clear path from idea to website without needing to be a designer or developer first. It turns a vague website goal into a structured seven-day process that produces a clearer layout, stronger messaging, better page planning, and a developer-ready handoff.
 
@@ -16,15 +16,113 @@ The final result is not just inspiration. It is a practical website and platform
 | 4. Interface and System Design | Turning the structure into real screens, mobile/desktop layouts, reusable sections, and visual direction. | wireframes, core screen states, navigation model, visual system decisions, and reusable UI patterns. | Days 4-6 |
 | 5. Production Handoff | Packaging the plan so it can be built with less confusion, rework, and missing requirements. | build-ready handoff notes, implementation priorities, edge cases, auth/paywall guidance, and design rationale. | Days 6-7 |
 
-Soon To Be Available on [AgentPowers](https://agentpowers.ai).
+Available across Claude, Cursor, and Codex.
 
 ## Sponsorship
 
 If this work helps your team build stronger design systems, clearer handoffs, or better agent workflows, support the project through sponsorship and partner support.
 
-## AgentPowers
+---
 
-AgentPowers will be the public availability and distribution home for this skill system: [agentpowers.ai](https://agentpowers.ai).
+## How To Use
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill.git
+cd 7-day-mobile-and-web-design-skill
+```
+
+---
+
+### 2. Choose Your Skill
+
+There are two primary skill packages:
+
+* `7-day-web-design` → framework-agnostic product and interface planning
+* `7-day-nextjs-web-design` → tailored for Next.js with implementation-aware structure
+
+Each skill includes platform-specific integrations.
+
+---
+
+### 3. Install by Platform
+
+#### Claude (Anthropic Skills)
+
+Copy the skill into your Claude skills directory:
+
+```bash
+skills/7-day-web-design/platforms/claude/.claude/skills/
+```
+
+or:
+
+```bash
+skills/7-day-nextjs-web-design/platforms/claude/.claude/skills/
+```
+
+Restart Claude or reload your environment.
+
+**Usage:**
+
+```
+Use the 7-day-web-design skill to plan this product: [your idea]
+```
+
+---
+
+#### Cursor (Rules)
+
+Copy the rule into your project:
+
+```bash
+.cursor/rules/7-day-web-design.mdc
+```
+
+or:
+
+```bash
+.cursor/rules/7-day-nextjs-web-design.mdc
+```
+
+Cursor will automatically apply the rule, or you can explicitly prompt:
+
+```
+Follow the 7-day web design system for this feature
+```
+
+---
+
+### 4. Use the Skill
+
+Once installed, the system is invoked through prompts, not UI.
+
+Provide:
+
+* a product idea
+* target user
+* any constraints (SaaS, marketplace, mobile-first, etc.)
+
+The skill will guide you through a structured 7-day process and produce a build-ready plan.
+
+---
+
+### 5. Validate and Export (Optional)
+
+Validate the workspace:
+
+```bash
+sh scripts/validate.sh
+```
+
+Export all skill packages:
+
+```bash
+sh scripts/export.sh
+```
+
+---
 
 ## What’s Here
 
