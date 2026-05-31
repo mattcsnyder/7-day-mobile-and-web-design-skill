@@ -1,9 +1,9 @@
 ---
-name: 7-day-web-design
+name: 7-day-web-design-claude
 description: Run a seven-day framework-agnostic design workflow for web products and features.
 ---
 
-# 7-Day Web Design
+# 7-Day Web Design — Claude
 
 Use this skill when a user wants a structured web design sprint that moves from framing through implementation handoff across seven days.
 

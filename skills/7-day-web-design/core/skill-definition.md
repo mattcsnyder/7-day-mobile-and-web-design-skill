@@ -2,7 +2,7 @@
 
 This is the canonical shared core definition for the `7-day-web-design` skill.
 
-It defines the skill objective, scope, workflow, outputs, examples, and constraints that platform-specific packages adapt into their required deployment formats.
+It defines the skill objective, scope, workflow, outputs, and constraints that platform-specific packages adapt into their required deployment formats.
 
 ## Objective
 
@@ -20,12 +20,21 @@ Use this skill when the user wants a time-boxed design sprint for a web product,
 
 Do not use it for isolated bug fixes, one-off copy edits, or purely engineering implementation work with no design scope.
 
+## How to Start
+
+If the user hasn't described a product, ask:
+- What are you designing?
+- Who is it for?
+- What constraints matter most?
+
+Work with whatever they provide. Note missing context as open questions and continue — do not stall waiting for complete answers.
+
 ## The 4Ds of Agentic Fluency
 
 This skill applies the 4Ds framework throughout the seven-day workflow:
 
 - **Delegation** — each day defines what the agent handles and what the user owns
-- **Description** — each day identifies what context the user must provide for strong output
+- **Description** — each day identifies what context the user must provide for strong output; ask for it, note gaps, and continue
 - **Discernment** — each day ends with explicit review criteria the user applies to the agent's output
 - **Diligence** — the user is accountable for every decision; the agent supports, it does not decide
 
@@ -38,63 +47,72 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 - Keep each day focused on one primary design objective
 - Prefer explicit deliverables over vague brainstorming
 - Make tradeoffs visible so the user can review decisions quickly
+- End each day with a Discernment check and wait for confirmation before advancing
 
 ## Seven-Day Workflow
 
 ### Day 1: Brief and Constraints
 
-- define the problem statement
-- identify target users and primary use cases
-- collect technical, business, and platform constraints
-- set success criteria and non-goals
+**Delegation** — agent structures the brief; user owns the vision and constraints  
+**Description** — ask for: product idea, target users, business model, technical constraints, success criteria. Note gaps and continue.  
+**Discernment** — does the brief reflect the real problem? are constraints specific and honest?  
+**Diligence** — wait for the user to confirm the brief before moving to Day 2
 
-**Output:** design brief with goals, constraints, and evaluation criteria
+**Output:** structured brief with problem statement, target users, constraints, success criteria, and open questions
 
 ### Day 2: Flows and Structure
 
-- map the core user journeys
-- define information architecture
-- identify risky or ambiguous parts of the experience
+**Delegation** — agent maps user journeys and information architecture; user validates the structure  
+**Description** — ask for: key tasks users need to complete, known navigation patterns, edge cases. Note gaps and continue.  
+**Discernment** — do the flows match how real users think? are risky or ambiguous paths surfaced?  
+**Diligence** — wait for the user to confirm the architecture before wireframing begins
 
-**Output:** user flows, screen inventory, and architecture outline
+**Output:** user flow map, screen inventory, and information architecture outline
 
 ### Day 3: Concepts and Direction
 
-- generate a few interface directions
-- compare layout, navigation, and interaction tradeoffs
-- select one direction with explicit reasoning
+**Delegation** — agent generates direction options with tradeoffs; user makes the final choice  
+**Description** — ask for: design references, brand tone, layout or navigation constraints. Note gaps and continue.  
+**Discernment** — are the tradeoffs real and specific, not generic? is the chosen direction well-reasoned?  
+**Diligence** — wait for the user to explicitly choose a direction before Day 4
 
-**Output:** concept comparison and chosen direction
+**Output:** 2–3 named directions with tradeoffs and a recommendation with reasoning
 
 ### Day 4: Page and State Wireframes
 
-- create low-fidelity web wireframes
-- cover the primary user journey end-to-end
-- define layout priorities and interaction states
+**Delegation** — agent produces low-fidelity screens; user reviews coverage and priorities  
+**Description** — ask for: which flows matter most, layout constraints, interaction priorities. Note gaps and continue.  
+**Discernment** — does the wireframe set cover the primary journey end-to-end? are key states present?  
+**Diligence** — wait for the user to identify and resolve gaps before moving to visual design
 
-**Output:** wireframe set for critical screens and states
+**Output:** low-fidelity wireframes for critical screens and states with annotations
 
 ### Day 5: Visual System
 
-- establish typography, color, spacing, and component patterns
-- translate the wireframes into high-fidelity screens
-**Output:** high-fidelity UI and core design system decisions
+**Delegation** — agent defines the visual system and high-fidelity screens; user validates direction  
+**Description** — ask for: brand guidelines, accessibility requirements, existing design patterns. Note gaps and continue.  
+**Discernment** — does the visual system feel intentional? are type, spacing, and color decisions consistent?  
+**Diligence** — wait for the user to confirm the visual direction before treating it as canonical
+
+**Output:** visual system (color, type, spacing, components) and high-fidelity screens for key views
 
 ### Day 6: Validation and Edge Cases
 
-- review the design against goals and constraints
-- identify missing states, accessibility concerns, and implementation risks
-- tighten consistency across screens and flows
+**Delegation** — agent reviews accessibility, missing states, and implementation risks; user prioritizes issues  
+**Description** — ask for: known edge cases, device targets, performance or legal constraints. Note gaps and continue.  
+**Discernment** — are the issues real or theoretical? which ones block launch?  
+**Diligence** — wait for the user to resolve or explicitly defer every open issue before handoff
 
-**Output:** review log, issue list, and revised screens or notes
+**Output:** validation log with accessibility findings, missing states, implementation risks, and deferred items
 
 ### Day 7: Handoff
 
-- package deliverables for stakeholders and developers
-- summarize rationale and unresolved decisions
-- provide implementation guidance, priorities, and next steps
+**Delegation** — agent packages deliverables and implementation guidance; user owns the final plan  
+**Description** — ask for: who receives the handoff, what level of implementation detail they need. Note gaps and continue.  
+**Discernment** — can an engineer act on this without a follow-up meeting?  
+**Diligence** — the handoff is the user's commitment — confirm before sharing
 
-**Output:** final design handoff with assets, rationale, and build guidance
+**Output:** final handoff document with screen inventory, design decisions, data model, open questions, and build guidance
 
 ## Required Deliverables
 
@@ -109,3 +127,4 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 - do not collapse discovery, structure, and execution into one step
 - do not produce generic design language without product context
 - do not assume a specific framework unless the user requests one
+- do not stall on missing information — note gaps as open questions and continue

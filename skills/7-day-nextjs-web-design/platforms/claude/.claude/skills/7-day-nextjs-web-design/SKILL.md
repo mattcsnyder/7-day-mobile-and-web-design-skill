@@ -1,9 +1,9 @@
 ---
-name: 7-day-nextjs-web-design
+name: 7-day-nextjs-web-design-claude
 description: A seven-day design workflow for web products that will be built in Next.js.
 ---
 
-# 7-Day Nextjs Web Design
+# 7-Day Next.js Web Design — Claude
 
 Use this skill when a user wants a seven-day design sprint for a product that will be built in Next.js.
 
