@@ -23,13 +23,19 @@ Each day applies all four Ds:
 
 | Day | Focus | Delegation | Discernment check | Output |
 |-----|-------|------------|-------------------|--------|
-| 1 | Brief | Agent structures; user owns vision | Does the brief reflect the real problem? | Problem, users, constraints, open questions |
-| 2 | Flows | Agent maps; user validates | Do flows match how real users think? | Flow map, screen inventory, IA outline |
+| 1 | Brief | Agent structures; user owns vision | Does the brief reflect the real problem? Is auth approach defined? | Problem, users, constraints, auth approach, open questions |
+| 2 | Flows | Agent maps; user validates | Do flows match how real users think? Are auth state transitions mapped? | Flow map, screen inventory, IA outline, auth flow diagram |
 | 3 | Concepts | Agent generates options; user chooses | Are tradeoffs real and specific? | 2–3 directions with tradeoffs and a recommendation |
 | 4 | Wireframes | Agent produces; user reviews coverage | Does the set cover the primary journey end-to-end? | Low-fidelity screens and key states |
 | 5 | Visual Design | Agent defines system; user validates | Is the visual system intentional and consistent? | Color, type, spacing, components, hi-fi screens |
-| 6 | Validation | Agent surfaces risks; user prioritizes | Which issues actually block launch? | Accessibility, missing states, risk log |
-| 7 | Handoff | Agent packages; user owns the plan | Can an engineer act on this without a follow-up? | Final handoff with decisions, model, build guidance |
+| 6 | Validation + Security | Agent surfaces risks and security issues; user prioritizes | Which issues block launch? Are auth headers and vulnerabilities reviewed? | Accessibility, missing states, security review, risk log |
+| 7 | Handoff | Agent packages; user owns the plan | Can an engineer act on this without a follow-up? Are security requirements included? | Final handoff with decisions, model, security checklist, build guidance |
+
+## Security Review (Day 6)
+
+**Auth headers:** `Authorization` token lifetime · Cookie flags (`Secure`, `HttpOnly`, `SameSite`) · `Content-Security-Policy` · `X-Frame-Options` · `X-Content-Type-Options` · `HSTS` · `CORS` origin restrictions
+
+**Standard problems:** XSS · CSRF · Clickjacking · Open redirects · Sensitive data in URLs · Auth error leakage · Insecure direct object references · Rate limiting on auth endpoints
 
 ## Rules
 
@@ -38,3 +44,4 @@ Each day applies all four Ds:
 - state tradeoffs, assumptions, and open questions explicitly
 - do not stall on missing information — note gaps and continue
 - do not assume a specific framework unless the user asks for one
+- always run the security review on Day 6 and include the security checklist in the Day 7 handoff
