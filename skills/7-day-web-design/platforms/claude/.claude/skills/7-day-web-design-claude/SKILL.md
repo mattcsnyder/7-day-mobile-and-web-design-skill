@@ -34,11 +34,11 @@ End each day with a Discernment check and wait for the user to confirm before ad
 ### Day 1: Brief
 
 **Delegation** — agent structures the brief; user owns the vision and constraints  
-**Description** — ask for: product idea, target users, business model, technical constraints, success criteria. Note gaps and continue.  
-**Discernment** — does the brief reflect the real problem? are constraints specific and honest?  
+**Description** — ask for: product idea, target users, business model, technical constraints, success criteria, auth mechanism (session cookie, JWT, OAuth?), and any sensitive data the product handles. Note gaps and continue.  
+**Discernment** — does the brief reflect the real problem? are constraints specific and honest? is the auth approach defined? is sensitive data classified?  
 **Diligence** — wait for the user to confirm the brief before moving to Day 2
 
-**Output:** structured brief with problem statement, target users, constraints, success criteria, and open questions
+**Output:** structured brief with problem statement, target users, constraints, success criteria, auth approach, and open questions
 
 ---
 
@@ -46,10 +46,12 @@ End each day with a Discernment check and wait for the user to confirm before ad
 
 **Delegation** — agent maps user journeys and information architecture; user validates the structure  
 **Description** — ask for: key tasks users need to complete, known navigation patterns, edge cases. Note gaps and continue.  
-**Discernment** — do the flows match how real users think? are risky or ambiguous paths surfaced?  
+**Discernment** — do the flows match how real users think? are risky or ambiguous paths surfaced? are auth state transitions (login, logout, session expiry, token refresh) explicitly mapped?  
 **Diligence** — wait for the user to confirm the architecture before wireframing begins
 
-**Output:** user flow map, screen inventory, and information architecture outline
+**Security thread:** map protected vs. public routes explicitly. Include login, logout, session expiry, and password reset as first-class flows. Identify where sensitive data is transmitted between screens.
+
+**Output:** user flow map, screen inventory, information architecture outline, and auth flow diagram
 
 ---
 
@@ -88,12 +90,37 @@ End each day with a Discernment check and wait for the user to confirm before ad
 
 ### Day 6: Validation
 
-**Delegation** — agent reviews accessibility, missing states, and implementation risks; user prioritizes issues  
+**Delegation** — agent reviews accessibility, missing states, implementation risks, and security; user prioritizes issues  
 **Description** — ask for: known edge cases, device targets, performance or legal constraints. Note gaps and continue.  
 **Discernment** — are the issues real or theoretical? which ones block launch?  
 **Diligence** — wait for the user to resolve or explicitly defer every open issue before handoff
 
-**Output:** validation log with accessibility findings, missing states, implementation risks, and deferred items
+**Security Review — Auth Headers:**
+
+| Header | What to Check |
+|---|---|
+| `Authorization: Bearer <token>` | Is the token short-lived? Is it stored in memory, not localStorage? |
+| Cookie flags | Are `Secure`, `HttpOnly`, and `SameSite=Strict` or `Lax` set on session cookies? |
+| `Content-Security-Policy` | Is a CSP defined? Does it restrict inline scripts and unknown origins? |
+| `X-Frame-Options` | Set to `DENY` or use CSP `frame-ancestors 'none'` to prevent clickjacking |
+| `X-Content-Type-Options` | Set to `nosniff` to prevent MIME sniffing |
+| `Strict-Transport-Security` | HSTS enabled? Redirecting HTTP to HTTPS? |
+| `CORS` | Is the `Access-Control-Allow-Origin` restricted to known origins, not `*`? |
+
+**Security Review — Standard Web Problems:**
+
+| Problem | What to Check |
+|---|---|
+| XSS | Is user-generated content sanitized before rendering? Are React/template auto-escaping protections in place? |
+| CSRF | Are state-changing requests protected by CSRF tokens or `SameSite` cookies? |
+| Clickjacking | Is `X-Frame-Options` or CSP `frame-ancestors` set? |
+| Open redirects | Do any redirect parameters accept arbitrary URLs? Validate against an allowlist. |
+| Sensitive data in URLs | Are tokens, session IDs, or PII ever passed as query parameters? Move to headers or POST body. |
+| Auth error leakage | Do login errors reveal whether a username exists? Use generic messages. |
+| Insecure direct object references | Can users access resources by guessing an ID? Verify ownership server-side. |
+| Rate limiting | Are login, registration, and password reset endpoints rate-limited against brute force? |
+
+**Output:** validation log with accessibility findings, missing states, implementation risks, security review, and deferred items
 
 ---
 
@@ -101,10 +128,17 @@ End each day with a Discernment check and wait for the user to confirm before ad
 
 **Delegation** — agent packages deliverables and implementation guidance; user owns the final plan  
 **Description** — ask for: who receives the handoff, what level of implementation detail they need. Note gaps and continue.  
-**Discernment** — can an engineer act on this without a follow-up meeting?  
+**Discernment** — can an engineer act on this without a follow-up meeting? are security requirements included?  
 **Diligence** — the handoff is the user's commitment — confirm before sharing
 
-**Output:** final handoff document with screen inventory, design decisions, data model, open questions, and build guidance
+**Security handoff checklist (include in every handoff):**
+- Auth mechanism and token strategy (Bearer, session cookie, JWT lifetime)
+- Required cookie flags: `Secure`, `HttpOnly`, `SameSite`
+- Security headers to configure on the server or CDN: `CSP`, `X-Frame-Options`, `X-Content-Type-Options`, `HSTS`, `CORS`
+- Known vulnerabilities flagged in Day 6 and their resolution or deferral status
+- Rate limiting requirements for auth endpoints
+
+**Output:** final handoff document with screen inventory, design decisions, data model, security requirements, open questions, and build guidance
 
 ---
 
@@ -116,3 +150,4 @@ End each day with a Discernment check and wait for the user to confirm before ad
 - state assumptions and open questions explicitly; do not stall on missing information
 - do not use generic design language without product context
 - do not assume a specific framework unless the user asks for one
+- always include the Day 6 security review and Day 7 security checklist — do not skip them

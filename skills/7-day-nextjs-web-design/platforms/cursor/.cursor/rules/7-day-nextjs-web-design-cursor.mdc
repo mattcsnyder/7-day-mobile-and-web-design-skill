@@ -23,13 +23,19 @@ Each day applies all four Ds:
 
 | Day | Focus | Delegation | Discernment check | Output |
 |-----|-------|------------|-------------------|--------|
-| 1 | Brief | Agent structures; user owns vision and runtime constraints | Does the brief reflect the real problem? Are runtime assumptions testable? | Problem, users, runtime constraints, open questions |
-| 2 | Routes and Layouts | Agent maps route tree; user validates structure | Is the hierarchy complete? Are public and authenticated areas separated? | Route map, layout map, screen inventory |
+| 1 | Brief | Agent structures; user owns vision and runtime constraints | Does the brief reflect the real problem? Is auth provider and token strategy defined? | Problem, users, runtime constraints, auth approach, open questions |
+| 2 | Routes and Layouts | Agent maps route tree; user validates structure | Is the hierarchy complete? Are protected route groups and middleware strategy defined? | Route map, layout map, screen inventory, protected route groups |
 | 3 | Rendering and Data | Agent proposes strategy; user owns architecture decisions | Are server vs. client decisions explicit and justified? | Rendering strategy and data architecture with tradeoffs |
 | 4 | Wireframes | Agent produces route-mapped screens; user reviews coverage | Does every wireframe map to a real route? Are loading and error states covered? | Route-aware wireframes with key states |
 | 5 | Visual Design | Agent defines system and inventory; user validates | Is the component inventory implementation-aware? | Visual system, component inventory, hi-fi screens |
-| 6 | Validation | Agent surfaces risks; user prioritizes | Are metadata and auth plans complete? Which risks are real? | Accessibility, metadata checklist, risk log |
-| 7 | Handoff | Agent packages; user owns the plan | Can a Next.js engineer implement this without a follow-up? | Route map, component map, data plan, build guidance |
+| 6 | Validation + Security | Agent surfaces risks and security issues; user prioritizes | Are metadata and auth plans complete? Are auth headers and vulnerabilities reviewed? | Accessibility, metadata checklist, security review, risk log |
+| 7 | Handoff | Agent packages; user owns the plan | Can a Next.js engineer implement this without a follow-up? Are security requirements included? | Route map, component map, data plan, security checklist, build guidance |
+
+## Security Review (Day 6)
+
+**Auth headers:** `Authorization` token lifetime · Cookie flags (`Secure`, `HttpOnly`, `SameSite`) · `Content-Security-Policy` in `next.config.js` · `X-Frame-Options` · `X-Content-Type-Options` · `HSTS` · `CORS` on API routes
+
+**Standard problems:** XSS (`dangerouslySetInnerHTML`) · CSRF (unprotected API routes) · Clickjacking · Open redirects (`callbackUrl`) · Sensitive data in URLs · Auth error leakage · Insecure direct object references · Rate limiting · Middleware bypass
 
 ## Rules
 
@@ -39,3 +45,4 @@ Each day applies all four Ds:
 - include metadata and SEO requirements
 - include auth, loading, and error-state considerations
 - do not stall on missing information — note gaps and continue
+- always run the security review on Day 6 and include the security checklist in the Day 7 handoff
