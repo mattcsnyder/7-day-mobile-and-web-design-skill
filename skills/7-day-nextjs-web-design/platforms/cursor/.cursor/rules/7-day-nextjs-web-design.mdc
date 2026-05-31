@@ -8,28 +8,34 @@ alwaysApply: false
 
 Use this rule when a project should follow a seven-day Next.js-aware design sprint.
 
+If the user hasn't described a product, ask: what are you designing, who is it for, and what are the hosting, auth, and data source assumptions? Work with what they provide — note gaps and continue.
+
 ## The 4Ds of Agentic Fluency
 
 Each day applies all four Ds:
 
 - **Delegation** — what the agent handles vs. what the user owns
-- **Description** — what context the user must provide for strong output
+- **Description** — what context the user must provide for strong output; ask for it, note gaps, continue
 - **Discernment** — how the user evaluates the agent's output before moving forward
-- **Diligence** — the user is accountable for every decision in the plan
+- **Diligence** — the user is accountable for every decision; wait for confirmation before advancing
 
 ## Day Targets
 
-- Day 1: brief, users, constraints, runtime assumptions
-- Day 2: route tree, app router segments, layout hierarchy
-- Day 3: server versus client boundaries and data architecture
-- Day 4: route-mapped wireframes and key states
-- Day 5: visual system and component inventory
-- Day 6: accessibility, metadata, auth, and performance review
-- Day 7: Next.js-focused implementation handoff
+| Day | Focus | Delegation | Discernment check | Output |
+|-----|-------|------------|-------------------|--------|
+| 1 | Brief | Agent structures; user owns vision and runtime constraints | Does the brief reflect the real problem? Are runtime assumptions testable? | Problem, users, runtime constraints, open questions |
+| 2 | Routes and Layouts | Agent maps route tree; user validates structure | Is the hierarchy complete? Are public and authenticated areas separated? | Route map, layout map, screen inventory |
+| 3 | Rendering and Data | Agent proposes strategy; user owns architecture decisions | Are server vs. client decisions explicit and justified? | Rendering strategy and data architecture with tradeoffs |
+| 4 | Wireframes | Agent produces route-mapped screens; user reviews coverage | Does every wireframe map to a real route? Are loading and error states covered? | Route-aware wireframes with key states |
+| 5 | Visual Design | Agent defines system and inventory; user validates | Is the component inventory implementation-aware? | Visual system, component inventory, hi-fi screens |
+| 6 | Validation | Agent surfaces risks; user prioritizes | Are metadata and auth plans complete? Which risks are real? | Accessibility, metadata checklist, risk log |
+| 7 | Handoff | Agent packages; user owns the plan | Can a Next.js engineer implement this without a follow-up? | Route map, component map, data plan, build guidance |
 
 ## Rules
 
-- keep route and layout structure explicit
-- make server versus client decisions visible
+- keep Next.js architecture visible from Day 2 onward
+- end each day with a Discernment check and wait for confirmation before advancing
+- make server vs. client decisions explicit
 - include metadata and SEO requirements
 - include auth, loading, and error-state considerations
+- do not stall on missing information — note gaps and continue

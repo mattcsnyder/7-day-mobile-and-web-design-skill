@@ -7,6 +7,15 @@ description: Run a seven-day framework-agnostic design workflow for web products
 
 Use this skill when a user wants a structured web design sprint that moves from framing through implementation handoff across seven days.
 
+## How to Start
+
+If the user hasn't described a product, ask:
+- What are you designing?
+- Who is it for?
+- What constraints matter most?
+
+Work with whatever they provide. Note missing context as open questions and continue — do not stall waiting for complete answers.
+
 ## The 4Ds of Agentic Fluency
 
 This skill runs on the 4Ds framework. Each day applies all four:
@@ -20,59 +29,90 @@ Prompting is one part of Description. The other three Ds — choosing the right 
 
 ## Day Plan
 
+End each day with a Discernment check and wait for the user to confirm before advancing.
+
 ### Day 1: Brief
 
 **Delegation** — agent structures the brief; user owns the vision and constraints  
-**Description** — provide: product idea, target users, business model, technical constraints, success criteria  
+**Description** — ask for: product idea, target users, business model, technical constraints, success criteria. Note gaps and continue.  
 **Discernment** — does the brief reflect the real problem? are constraints specific and honest?  
-**Diligence** — sign off on the brief before moving to Day 2
+**Diligence** — wait for the user to confirm the brief before moving to Day 2
+
+**Output:** structured brief with problem statement, target users, constraints, success criteria, and open questions
+
+---
 
 ### Day 2: Flows
 
 **Delegation** — agent maps user journeys and information architecture; user validates the structure  
-**Description** — provide: key tasks users need to complete, known navigation patterns, edge cases  
+**Description** — ask for: key tasks users need to complete, known navigation patterns, edge cases. Note gaps and continue.  
 **Discernment** — do the flows match how real users think? are risky or ambiguous paths surfaced?  
-**Diligence** — confirm the architecture before wireframing begins
+**Diligence** — wait for the user to confirm the architecture before wireframing begins
+
+**Output:** user flow map, screen inventory, and information architecture outline
+
+---
 
 ### Day 3: Concepts
 
 **Delegation** — agent generates direction options with tradeoffs; user makes the final choice  
-**Description** — provide: design references, brand tone, layout or navigation constraints  
+**Description** — ask for: design references, brand tone, layout or navigation constraints. Note gaps and continue.  
 **Discernment** — are the tradeoffs real and specific, not generic? is the chosen direction well-reasoned?  
-**Diligence** — own the direction decision explicitly before Day 4
+**Diligence** — wait for the user to explicitly choose a direction before Day 4
+
+**Output:** 2–3 named directions with tradeoffs and a recommendation with reasoning
+
+---
 
 ### Day 4: Wireframes
 
 **Delegation** — agent produces low-fidelity screens; user reviews coverage and priorities  
-**Description** — provide: which flows matter most, layout constraints, interaction priorities  
+**Description** — ask for: which flows matter most, layout constraints, interaction priorities. Note gaps and continue.  
 **Discernment** — does the wireframe set cover the primary journey end-to-end? are key states present?  
-**Diligence** — identify gaps and resolve them before moving to visual design
+**Diligence** — wait for the user to identify and resolve gaps before moving to visual design
+
+**Output:** low-fidelity wireframes for critical screens and states with annotations
+
+---
 
 ### Day 5: Visual Design
 
 **Delegation** — agent defines the visual system and high-fidelity screens; user validates direction  
-**Description** — provide: brand guidelines, accessibility requirements, existing design patterns  
+**Description** — ask for: brand guidelines, accessibility requirements, existing design patterns. Note gaps and continue.  
 **Discernment** — does the visual system feel intentional? are type, spacing, and color decisions consistent?  
-**Diligence** — confirm the system before treating it as canonical
+**Diligence** — wait for the user to confirm the visual direction before treating it as canonical
+
+**Output:** visual system (color, type, spacing, components) and high-fidelity screens for key views
+
+---
 
 ### Day 6: Validation
 
 **Delegation** — agent reviews accessibility, missing states, and implementation risks; user prioritizes issues  
-**Description** — provide: known edge cases, device targets, performance or legal constraints  
+**Description** — ask for: known edge cases, device targets, performance or legal constraints. Note gaps and continue.  
 **Discernment** — are the issues real or theoretical? which ones block launch?  
-**Diligence** — resolve or explicitly defer every open issue before handoff
+**Diligence** — wait for the user to resolve or explicitly defer every open issue before handoff
+
+**Output:** validation log with accessibility findings, missing states, implementation risks, and deferred items
+
+---
 
 ### Day 7: Handoff
 
 **Delegation** — agent packages deliverables and implementation guidance; user owns the final plan  
-**Description** — provide: who receives the handoff, what level of implementation detail they need  
+**Description** — ask for: who receives the handoff, what level of implementation detail they need. Note gaps and continue.  
 **Discernment** — can an engineer act on this without a follow-up meeting?  
-**Diligence** — the handoff is your commitment — review it before sharing
+**Diligence** — the handoff is the user's commitment — confirm before sharing
+
+**Output:** final handoff document with screen inventory, design decisions, data model, open questions, and build guidance
+
+---
 
 ## Rules
 
 - keep the core web experience in scope
 - produce one clear output per day
-- state assumptions and open questions explicitly
+- end each day with a Discernment check and wait for confirmation before advancing
+- state assumptions and open questions explicitly; do not stall on missing information
 - do not use generic design language without product context
 - do not assume a specific framework unless the user asks for one

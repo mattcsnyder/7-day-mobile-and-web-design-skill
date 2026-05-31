@@ -8,28 +8,33 @@ alwaysApply: false
 
 Apply this rule when design work should be structured as a seven-day sprint for web product work without assuming a specific framework.
 
+If the user hasn't described a product, ask: what are you designing, who is it for, and what constraints matter most? Work with what they provide — note gaps and continue.
+
 ## The 4Ds of Agentic Fluency
 
 Each day applies all four Ds:
 
 - **Delegation** — what the agent handles vs. what the user owns
-- **Description** — what context the user must provide for strong output
+- **Description** — what context the user must provide for strong output; ask for it, note gaps, continue
 - **Discernment** — how the user evaluates the agent's output before moving forward
-- **Diligence** — the user is accountable for every decision in the plan
+- **Diligence** — the user is accountable for every decision; wait for confirmation before advancing
 
 ## Day Targets
 
-- Day 1: brief, users, constraints, success criteria
-- Day 2: flows and information architecture
-- Day 3: concept comparison and chosen direction
-- Day 4: wireframes for critical paths
-- Day 5: high-fidelity UI and visual system
-- Day 6: accessibility, missing states, risk review
-- Day 7: final handoff package and implementation notes
+| Day | Focus | Delegation | Discernment check | Output |
+|-----|-------|------------|-------------------|--------|
+| 1 | Brief | Agent structures; user owns vision | Does the brief reflect the real problem? | Problem, users, constraints, open questions |
+| 2 | Flows | Agent maps; user validates | Do flows match how real users think? | Flow map, screen inventory, IA outline |
+| 3 | Concepts | Agent generates options; user chooses | Are tradeoffs real and specific? | 2–3 directions with tradeoffs and a recommendation |
+| 4 | Wireframes | Agent produces; user reviews coverage | Does the set cover the primary journey end-to-end? | Low-fidelity screens and key states |
+| 5 | Visual Design | Agent defines system; user validates | Is the visual system intentional and consistent? | Color, type, spacing, components, hi-fi screens |
+| 6 | Validation | Agent surfaces risks; user prioritizes | Which issues actually block launch? | Accessibility, missing states, risk log |
+| 7 | Handoff | Agent packages; user owns the plan | Can an engineer act on this without a follow-up? | Final handoff with decisions, model, build guidance |
 
 ## Rules
 
 - keep the core web experience in scope
-- end each day with a named deliverable
+- end each day with a Discernment check and wait for confirmation before advancing
 - state tradeoffs, assumptions, and open questions explicitly
+- do not stall on missing information — note gaps and continue
 - do not assume a specific framework unless the user asks for one
