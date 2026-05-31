@@ -21,12 +21,12 @@ $skill_dir/skill.json
 $skill_dir/core/skill-definition.md
 $skill_dir/docs/platform-packaging.md
 $skill_dir/platforms/claude/README.md
-$skill_dir/platforms/claude/.claude/skills/$slug/SKILL.md
+$skill_dir/platforms/claude/.claude/skills/${slug}-claude/SKILL.md
 $skill_dir/platforms/codex/README.md
-$skill_dir/platforms/codex/plugins/$slug/.codex-plugin/plugin.json
-$skill_dir/platforms/codex/plugins/$slug/skills/$slug/SKILL.md
+$skill_dir/platforms/codex/plugins/${slug}-codex/.codex-plugin/plugin.json
+$skill_dir/platforms/codex/plugins/${slug}-codex/skills/${slug}-codex/SKILL.md
 $skill_dir/platforms/cursor/README.md
-$skill_dir/platforms/cursor/.cursor/rules/$slug.mdc
+$skill_dir/platforms/cursor/.cursor/rules/${slug}-cursor.mdc
 "
 
   for file in $required_files; do
