@@ -12,6 +12,17 @@ Use this skill when the user wants a seven-day design sprint for a Next.js appli
 
 Do not use it when framework choice is unknown or when the work should stay implementation-agnostic.
 
+## The 4Ds of Agentic Fluency
+
+This skill applies the 4Ds framework throughout the seven-day workflow:
+
+- **Delegation** — each day defines what the agent handles and what the user owns
+- **Description** — each day identifies what context the user must provide for strong output
+- **Discernment** — each day ends with explicit review criteria the user applies to the agent's output
+- **Diligence** — the user is accountable for every decision; the agent supports, it does not decide
+
+Prompting lives inside Description. The other three Ds — choosing the right work, evaluating output, and owning the result — are equally essential.
+
 ## Working Style
 
 - maintain a seven-day cadence unless the user explicitly changes it
