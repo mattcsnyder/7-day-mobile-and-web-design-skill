@@ -1,16 +1,6 @@
-# 7-Day Next.js Web Design
+# 7-Day Next.js Web Design — Codex
 
-This is the shared core definition for `7-day-nextjs-web-design`.
-
-## Objective
-
-Guide an AI coding or assistant environment through a structured seven-day web design workflow for products that will be built in Next.js.
-
-## When To Use
-
-Use this skill when the user wants a seven-day design sprint for a Next.js application or feature and needs implementation-aware outputs.
-
-Do not use it when framework choice is unknown or when the work should stay implementation-agnostic.
+Use this skill to run a seven-day design sprint for web products that will be built in Next.js.
 
 ## How to Start
 
@@ -23,27 +13,20 @@ Work with whatever they provide. Note missing context as open questions and cont
 
 ## The 4Ds of Agentic Fluency
 
-This skill applies the 4Ds framework throughout the seven-day workflow:
+This skill runs on the 4Ds framework. Each day applies all four:
 
-- **Delegation** — each day defines what the agent handles and what the user owns
-- **Description** — each day identifies what context the user must provide for strong output; ask for it, note gaps, and continue
-- **Discernment** — each day ends with explicit review criteria the user applies to the agent's output
-- **Diligence** — the user is accountable for every decision; the agent supports, it does not decide
+- **Delegation** — what the agent handles vs. what the user owns
+- **Description** — what context the user provides to enable strong output; ask for it, note gaps, continue
+- **Discernment** — how the user evaluates and challenges what the agent produces
+- **Diligence** — the user is accountable for every decision; wait for confirmation before advancing
 
-Prompting lives inside Description. The other three Ds — choosing the right work, evaluating output, and owning the result — are equally essential.
+Prompting is one part of Description. The other three Ds — choosing the right work, judging the output, and owning the result — are equally essential.
 
-## Working Style
+## Day Plan
 
-- maintain a seven-day cadence unless the user explicitly changes it
-- treat Next.js architecture as part of the design problem, not a post-design detail
-- keep route structure, layout structure, and component boundaries visible from Day 2 onward
-- make server versus client decisions explicit
-- keep SEO, metadata, auth, and deployment assumptions visible in the plan
-- end each day with a Discernment check and wait for confirmation before advancing
+End each day with a Discernment check and wait for the user to confirm before advancing.
 
-## Seven-Day Workflow
-
-### Day 1: Product Brief and Runtime Constraints
+### Day 1: Brief
 
 **Delegation** — agent structures the brief; user owns the product vision and runtime constraints  
 **Description** — ask for: product idea, target users, hosting environment, auth approach, data sources, success criteria. Note gaps and continue.  
@@ -52,7 +35,7 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** product brief with problem statement, target users, runtime constraints, success criteria, and open questions
 
-### Day 2: Route Tree and App Structure
+### Day 2: Routes and Layouts
 
 **Delegation** — agent maps the route tree and layout hierarchy; user validates the structure  
 **Description** — ask for: key pages, protected vs. public areas, role-specific sections, known navigation patterns. Note gaps and continue.  
@@ -61,7 +44,7 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** route map, layout map, and screen inventory
 
-### Day 3: Rendering and Data Architecture
+### Day 3: Rendering and Data
 
 **Delegation** — agent proposes rendering strategy and data boundaries; user makes the architecture decisions  
 **Description** — ask for: performance requirements, known data sources, real-time needs, caching expectations. Note gaps and continue.  
@@ -79,7 +62,7 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** route-aware wireframe set with key states annotated per route
 
-### Day 5: Visual System and Component Inventory
+### Day 5: Visual Design and Components
 
 **Delegation** — agent defines the visual system and component inventory; user validates direction  
 **Description** — ask for: brand guidelines, accessibility requirements, shared vs. route-specific component expectations. Note gaps and continue.  
@@ -88,7 +71,7 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** visual system (color, type, spacing) and implementation-aware component inventory with high-fidelity screens
 
-### Day 6: Validation, Metadata, and Risk Review
+### Day 6: Validation and Metadata
 
 **Delegation** — agent reviews accessibility, SEO, auth, hydration, and performance risks; user prioritizes  
 **Description** — ask for: SEO requirements, known accessibility constraints, deployment environment. Note gaps and continue.  
@@ -97,7 +80,7 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** validation log with accessibility findings, metadata checklist, auth and hydration risks, and deferred items
 
-### Day 7: Next.js Handoff
+### Day 7: Handoff
 
 **Delegation** — agent packages the route map, component map, data plan, and implementation guidance; user owns the final handoff  
 **Description** — ask for: who receives the handoff, their familiarity with Next.js, what level of detail they need. Note gaps and continue.  
@@ -106,18 +89,12 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** Next.js-specific handoff with route map, component map, data dependencies, metadata plan, open questions, and build guidance
 
-## Required Deliverables
+## Constraints
 
-- one clear output per day
-- route-aware planning from Day 2 onward
-- explicit app router, server versus client, and metadata decisions
-- final handoff notes that a Next.js engineer can implement directly
-
-## Guardrails
-
-- do not treat Next.js as an afterthought added only on Day 7
-- do not leave route hierarchy implicit
-- do not leave server versus client decisions vague
-- do not ignore metadata, SEO, auth, or loading states
-- do not assume one layout fits every route
-- do not stall on missing information — note gaps as open questions and continue
+- keep Next.js architecture visible from Day 2 onward
+- produce one clear output per day
+- end each day with a Discernment check and wait for confirmation before advancing
+- state assumptions and open questions explicitly; do not stall on missing information
+- make server vs. client decisions explicit
+- include metadata and SEO considerations
+- include auth, loading, and error-state considerations

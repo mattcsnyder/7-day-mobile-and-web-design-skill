@@ -8,19 +8,60 @@ Instead of guessing what pages you need, what should go on mobile, what should b
 
 The final result is not just inspiration. It is a practical website and platform plan with public-facing pages, authentication flows, paid-access and paywall concepts, key user states, design direction, and handoff guidance that makes the next step much easier whether you build it yourself, use AI tools, or hand it to a developer.
 
-| Stage | What This Stage Covers | What You Should Expect to Have | Realistic Day Estimate |
-| --- | --- | --- | --- |
-| 1. Offer and Site Foundation | Clarifying the business offer, core website purpose, audience, and desktop/mobile priorities. | homepage direction, page list, value proposition, audience focus, and feature priorities. | Days 1-2 |
-| 2. Conversion and Access Planning | Mapping how visitors move from public pages into signup, authentication, and first-use flows. | landing-page flow, CTA strategy, signup/login structure, onboarding path, and access assumptions. | Days 2-3 |
-| 3. Paid Platform Structure | Defining what the logged-in product experience includes and how paid access or paywalls should work. | dashboard/page map, protected routes, paywall concepts, upgrade prompts, user-state planning, and key platform sections. | Days 3-5 |
-| 4. Interface and System Design | Turning the structure into real screens, mobile/desktop layouts, reusable sections, and visual direction. | wireframes, core screen states, navigation model, visual system decisions, and reusable UI patterns. | Days 4-6 |
-| 5. Production Handoff | Packaging the plan so it can be built with less confusion, rework, and missing requirements. | build-ready handoff notes, implementation priorities, edge cases, auth/paywall guidance, and design rationale. | Days 6-7 |
-
 Available across Claude, Cursor, and Codex.
 
-## Sponsorship
+---
 
-If this work helps your team build stronger design systems, clearer handoffs, or better agent workflows, support the project through sponsorship and partner support.
+## The 4Ds of Agentic Fluency
+
+Every session in this skill system is guided by the 4Ds framework (Anthropic, Dakan & Feller):
+
+| D | What It Means |
+| --- | --- |
+| **Delegation** | Decide what the agent handles and what stays with you. Knowing the strengths and limits of each is the starting point. |
+| **Description** | Give the agent what it needs — context, constraints, goals. Prompting is one part of this. The rest is knowing what matters. |
+| **Discernment** | Evaluate outputs critically before moving forward. Catch gaps, hallucinations, and weak reasoning before they compound. |
+| **Diligence** | Own every decision. The agent supports; you are accountable for the plan. |
+
+Prompting is one part of Description — roughly one quarter of one of four competencies. The other 75% — choosing the right work, judging the output, and owning the result — is what separates fluent users from shallow ones.
+
+The 7-day workflow is structured so each day surfaces all four Ds explicitly: what the agent owns, what context you provide, how to evaluate the output, and where accountability sits.
+
+---
+
+## Seven-Day Workflow
+
+| Stage | What This Stage Covers | What You Should Expect to Have | Realistic Day Estimate |
+| --- | --- | --- | --- |
+| 1. Brief and Constraints | Clarifying the product or business offer, core purpose, audience, and priorities. | problem statement, target users, constraints, success criteria, and open questions. | Days 1–2 |
+| 2. Flows and Structure | Mapping how users move through the experience, and what screens and architecture that requires. | user flows, screen inventory, and information architecture outline. | Days 2–3 |
+| 3. Concepts and Direction | Generating interface directions, comparing tradeoffs, and selecting one with explicit reasoning. | 2–3 named directions with tradeoffs and a chosen direction. | Days 3–4 |
+| 4. Wireframes | Turning the chosen direction into low-fidelity screens that cover the primary journey end-to-end. | wireframe set for critical screens and states. | Days 4–5 |
+| 5. Visual System | Establishing the visual language and producing high-fidelity screens. | color, type, spacing, components, and hi-fi screens. | Days 5–6 |
+| 6. Validation | Reviewing the design against goals, surfacing accessibility concerns, missing states, and implementation risks. | validation log, issue list, and deferred items. | Day 6 |
+| 7. Handoff | Packaging deliverables so an engineer can build without a follow-up meeting. | final handoff with screen inventory, design decisions, data model, and build guidance. | Day 7 |
+
+---
+
+## Skills
+
+### `7-day-web-design`
+
+Framework-agnostic. Use when the framework is undecided or the focus is product structure and interface planning.
+
+- Core: `skills/7-day-web-design/core/skill-definition.md`
+- Claude: `skills/7-day-web-design/platforms/claude/.claude/skills/7-day-web-design-claude/SKILL.md`
+- Cursor: `skills/7-day-web-design/platforms/cursor/.cursor/rules/7-day-web-design-cursor.mdc`
+- Codex: `skills/7-day-web-design/platforms/codex/plugins/7-day-web-design-codex/`
+
+### `7-day-nextjs-web-design`
+
+Next.js-specific. Use when routes, rendering boundaries, and implementation constraints are part of the design problem from Day 1.
+
+- Core: `skills/7-day-nextjs-web-design/core/skill-definition.md`
+- Claude: `skills/7-day-nextjs-web-design/platforms/claude/.claude/skills/7-day-nextjs-web-design-claude/SKILL.md`
+- Cursor: `skills/7-day-nextjs-web-design/platforms/cursor/.cursor/rules/7-day-nextjs-web-design-cursor.mdc`
+- Codex: `skills/7-day-nextjs-web-design/platforms/codex/plugins/7-day-nextjs-web-design-codex/`
 
 ---
 
@@ -37,119 +78,6 @@ cd 7-day-mobile-and-web-design-skill
 
 ### 2. Choose Your Skill
 
-There are two primary skill packages:
-
-* `7-day-web-design` → framework-agnostic product and interface planning
-* `7-day-nextjs-web-design` → tailored for Next.js with implementation-aware structure
-
-Each skill includes platform-specific integrations.
-
----
-
-### 3. Install by Platform
-
-#### Claude (Anthropic Skills)
-
-Copy the skill into your Claude skills directory:
-
-```bash
-skills/7-day-web-design/platforms/claude/.claude/skills/
-```
-
-or:
-
-```bash
-skills/7-day-nextjs-web-design/platforms/claude/.claude/skills/
-```
-
-Restart Claude or reload your environment.
-
-**Usage:**
-
-```
-Use the 7-day-web-design skill to plan this product: [your idea]
-```
-
----
-
-#### Cursor (Rules)
-
-Copy the rule into your project:
-
-```bash
-.cursor/rules/7-day-web-design.mdc
-```
-
-or:
-
-```bash
-.cursor/rules/7-day-nextjs-web-design.mdc
-```
-
-Cursor will automatically apply the rule, or you can explicitly prompt:
-
-```
-Follow the 7-day web design system for this feature
-```
-
----
-
-### 4. Use the Skill
-
-Once installed, the system is invoked through prompts, not UI.
-
-Provide:
-
-* a product idea
-* target user
-* any constraints (SaaS, marketplace, mobile-first, etc.)
-
-The skill will guide you through a structured 7-day process and produce a build-ready plan.
-
----
-
-### 5. Validate and Export (Optional)
-
-Validate the workspace:
-
-```bash
-sh scripts/validate.sh
-```
-
-Export all skill packages:
-
-```bash
-sh scripts/export.sh
-```
-
----
-
-## What’s Here
-
-| Skill | Positioning | Best For | GitHub File Links |
-| --- | --- | --- | --- |
-| `7-day-web-design` | The generalized version of the methodology. | Framework-agnostic product, feature, and redesign work on the web. | [README](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/README.md), [Core Definition](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/core/skill-definition.md), [Claude Skill](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/platforms/claude/.claude/skills/7-day-web-design/SKILL.md), [Codex Plugin Manifest](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/platforms/codex/plugins/7-day-web-design/.codex-plugin/plugin.json), [Cursor Rule](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/platforms/cursor/.cursor/rules/7-day-web-design.mdc) |
-| `7-day-nextjs-web-design` | The specialized version for products that will be built in Next.js. | App router planning, metadata, rendering boundaries, and implementation-aware handoff. | [README](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/README.md), [Core Definition](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/core/skill-definition.md), [Claude Skill](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/platforms/claude/.claude/skills/7-day-nextjs-web-design/SKILL.md), [Codex Plugin Manifest](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/platforms/codex/plugins/7-day-nextjs-web-design/.codex-plugin/plugin.json), [Cursor Rule](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/platforms/cursor/.cursor/rules/7-day-nextjs-web-design.mdc) |
-
-## Day-by-Day Plans
-
-| Day | 7-Day Web Design | 7-Day Nextjs Web Design |
-| --- | --- | --- |
-| Day 1 | brief, users, goals, and constraints | product brief and runtime constraints |
-| Day 2 | information architecture and flows | route tree and app structure |
-| Day 3 | concepts and tradeoffs | rendering and data architecture |
-| Day 4 | page and state wireframes | route-mapped wireframes |
-| Day 5 | visual system and high-fidelity UI | visual system and component inventory |
-| Day 6 | validation, accessibility, and risk review | validation, metadata, and risk review |
-| Day 7 | final design handoff | Next.js-specific handoff |
-
-| Plan | Source Files |
-| --- | --- |
-| Generalized Web Design Plan | [General Skill README](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/README.md), [General Core Definition](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/core/skill-definition.md) |
-| Next.js Design Plan | [Next.js Skill README](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/README.md), [Next.js Core Definition](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/core/skill-definition.md) |
-
-## How to Use
-
 | Situation | Recommended Skill |
 | --- | --- |
 | framework choice is still open | `7-day-web-design` |
@@ -159,25 +87,128 @@ sh scripts/export.sh
 | route and layout planning matter early | `7-day-nextjs-web-design` |
 | metadata, auth, rendering, and data-flow decisions need to be captured as part of design | `7-day-nextjs-web-design` |
 
-Validate the workspace with:
+---
+
+### 3. Install by Platform
+
+#### Claude
+
+Copy the skill folder into your project's `.claude/skills/` directory:
+
+```bash
+# Framework-agnostic
+skills/7-day-web-design/platforms/claude/.claude/skills/7-day-web-design-claude/
+
+# Next.js
+skills/7-day-nextjs-web-design/platforms/claude/.claude/skills/7-day-nextjs-web-design-claude/
+```
+
+Restart Claude or reload your environment.
+
+**Invoke with:**
+
+```
+Use the 7-day-web-design-claude skill to plan this product: [your idea]
+```
+
+```
+Use the 7-day-nextjs-web-design-claude skill to plan this product: [your idea]
+```
+
+---
+
+#### Cursor
+
+Copy the rule file into your project's `.cursor/rules/` directory:
+
+```bash
+# Framework-agnostic
+skills/7-day-web-design/platforms/cursor/.cursor/rules/7-day-web-design-cursor.mdc
+
+# Next.js
+skills/7-day-nextjs-web-design/platforms/cursor/.cursor/rules/7-day-nextjs-web-design-cursor.mdc
+```
+
+Cursor will automatically apply the rule, or prompt explicitly:
+
+```
+Follow the 7-day-web-design-cursor rule for this product
+```
+
+---
+
+#### Codex
+
+Copy the plugin folder into your Codex plugins directory:
+
+```bash
+# Framework-agnostic
+skills/7-day-web-design/platforms/codex/plugins/7-day-web-design-codex/
+
+# Next.js
+skills/7-day-nextjs-web-design/platforms/codex/plugins/7-day-nextjs-web-design-codex/
+```
+
+---
+
+### 4. Use the Skill
+
+Once installed, the system is invoked through prompts. The skill will ask you what you're designing if you haven't provided it. Provide as much or as little as you have:
+
+- a product idea
+- target user
+- any constraints (SaaS, marketplace, mobile-first, Next.js, etc.)
+
+The skill guides you through the 7-day process one day at a time. Each day ends with a Discernment check — the agent waits for your confirmation before advancing.
+
+---
+
+### 5. Validate and Export (Optional)
+
+Validate the workspace structure:
 
 ```bash
 sh scripts/validate.sh
 ```
 
-Export all skill packages with:
+Export all skill packages into `dist/`:
 
 ```bash
 sh scripts/export.sh
 ```
 
+---
+
+## What's Here
+
+| Skill | Positioning | Best For | Files |
+| --- | --- | --- | --- |
+| `7-day-web-design` | Framework-agnostic design methodology. | Product, feature, and redesign work on the web where framework choice is open. | [README](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/README.md) · [Core](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/core/skill-definition.md) · [Claude](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/platforms/claude/.claude/skills/7-day-web-design-claude/SKILL.md) · [Cursor](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/platforms/cursor/.cursor/rules/7-day-web-design-cursor.mdc) · [Codex](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-web-design/platforms/codex/plugins/7-day-web-design-codex/.codex-plugin/plugin.json) |
+| `7-day-nextjs-web-design` | Next.js-specific design methodology. | App router planning, metadata, rendering boundaries, and implementation-aware handoff. | [README](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/README.md) · [Core](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/core/skill-definition.md) · [Claude](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/platforms/claude/.claude/skills/7-day-nextjs-web-design-claude/SKILL.md) · [Cursor](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/platforms/cursor/.cursor/rules/7-day-nextjs-web-design-cursor.mdc) · [Codex](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/blob/main/skills/7-day-nextjs-web-design/platforms/codex/plugins/7-day-nextjs-web-design-codex/.codex-plugin/plugin.json) |
+
+## Day-by-Day Plans
+
+| Day | 7-Day Web Design | 7-Day Next.js Web Design |
+| --- | --- | --- |
+| Day 1 | brief, users, goals, and constraints | product brief and runtime constraints |
+| Day 2 | information architecture and flows | route tree and app structure |
+| Day 3 | concepts and tradeoffs | rendering and data architecture |
+| Day 4 | page and state wireframes | route-mapped wireframes |
+| Day 5 | visual system and high-fidelity UI | visual system and component inventory |
+| Day 6 | validation, accessibility, and risk review | validation, metadata, and risk review |
+| Day 7 | final design handoff | Next.js-specific handoff |
+
+---
+
 ## Targeted Checklists
 
-| Audience | Targeted Checklist |
+| Audience | Checklist |
 | --- | --- |
 | Product Teams | choose the generalized skill for broad web product planning; choose the Next.js skill when implementation constraints are known; expect one concrete deliverable per day; use the Day 7 handoff as the working bridge to engineering |
 | General Web Design Reviews | confirm the workflow stays framework-agnostic; confirm each day has a concrete output; confirm the handoff remains usable by engineers; confirm assumptions and open questions are explicit |
 | Next.js Delivery Reviews | confirm route and layout structure are explicit; confirm server versus client boundaries are visible; confirm metadata and SEO are included; confirm auth, loading, and error-state planning is present; confirm the final handoff is actionable for Next.js engineers |
+
+---
 
 ## Repository Sections
 
@@ -185,16 +216,20 @@ sh scripts/export.sh
 | --- | --- | --- |
 | Skills | All skill packages and platform-specific outputs. | [skills/](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/tree/main/skills) |
 | Plans | Design and implementation notes. | [docs/plans/](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/tree/main/docs/plans) |
-| Scripts | Generator, validation, and export tooling. | [scripts/](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/tree/main/scripts) |
+| Scripts | Validation and export tooling. | [scripts/](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/tree/main/scripts) |
 | Dist | Built package outputs. | [dist/](https://github.com/mattcsnyder/7-day-mobile-and-web-design-skill/tree/main/dist) |
+
+---
 
 ## Contribute
 
 The workflow in this repository is:
 - shape or refine a skill under `skills/`
-- validate the workspace
-- export packages
-- review the deployable outputs for Claude, Codex, and Cursor
+- run `validate.sh` to confirm structure
+- run `export.sh` to produce deployable packages
+- review the outputs under `dist/` before distributing
+
+---
 
 ## Support
 

@@ -1,24 +1,11 @@
-# 7-Day Web Design
+---
+name: 7-day-web-design-claude
+description: Run a seven-day framework-agnostic design workflow for web products and features.
+---
 
-This is the canonical shared core definition for the `7-day-web-design` skill.
+# 7-Day Web Design — Claude
 
-It defines the skill objective, scope, workflow, outputs, and constraints that platform-specific packages adapt into their required deployment formats.
-
-## Objective
-
-Guide an AI coding or assistant environment through a structured seven-day web design workflow with clear deliverables, sequencing, and quality expectations.
-
-## Shared Core
-
-The shared core owns the canonical intent, terminology, examples, and operating constraints for the skill.
-
-Platform-specific packages are responsible for wrapping that canonical content in the file structure and metadata expected by Claude, Codex, and Cursor.
-
-## When To Use
-
-Use this skill when the user wants a time-boxed design sprint for a web product, feature, redesign, or concept.
-
-Do not use it for isolated bug fixes, one-off copy edits, or purely engineering implementation work with no design scope.
+Use this skill when a user wants a structured web design sprint that moves from framing through implementation handoff across seven days.
 
 ## How to Start
 
@@ -31,27 +18,20 @@ Work with whatever they provide. Note missing context as open questions and cont
 
 ## The 4Ds of Agentic Fluency
 
-This skill applies the 4Ds framework throughout the seven-day workflow:
+This skill runs on the 4Ds framework. Each day applies all four:
 
-- **Delegation** — each day defines what the agent handles and what the user owns
-- **Description** — each day identifies what context the user must provide for strong output; ask for it, note gaps, and continue
-- **Discernment** — each day ends with explicit review criteria the user applies to the agent's output
-- **Diligence** — the user is accountable for every decision; the agent supports, it does not decide
+- **Delegation** — what the agent handles vs. what the user owns
+- **Description** — what context the user provides to enable strong output
+- **Discernment** — how the user evaluates and challenges what the agent produces
+- **Diligence** — the user's accountability for every decision in the plan
 
-Prompting lives inside Description. The other three Ds — choosing the right work, evaluating output, and owning the result — are equally essential.
+Prompting is one part of Description. The other three Ds — choosing the right work, judging the output, and owning the result — are equally essential.
 
-## Working Style
+## Day Plan
 
-- Maintain a seven-day cadence unless the user explicitly changes the schedule
-- Produce outputs for the web experience without assuming a specific framework
-- Keep each day focused on one primary design objective
-- Prefer explicit deliverables over vague brainstorming
-- Make tradeoffs visible so the user can review decisions quickly
-- End each day with a Discernment check and wait for confirmation before advancing
+End each day with a Discernment check and wait for the user to confirm before advancing.
 
-## Seven-Day Workflow
-
-### Day 1: Brief and Constraints
+### Day 1: Brief
 
 **Delegation** — agent structures the brief; user owns the vision and constraints  
 **Description** — ask for: product idea, target users, business model, technical constraints, success criteria. Note gaps and continue.  
@@ -60,7 +40,9 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** structured brief with problem statement, target users, constraints, success criteria, and open questions
 
-### Day 2: Flows and Structure
+---
+
+### Day 2: Flows
 
 **Delegation** — agent maps user journeys and information architecture; user validates the structure  
 **Description** — ask for: key tasks users need to complete, known navigation patterns, edge cases. Note gaps and continue.  
@@ -69,7 +51,9 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** user flow map, screen inventory, and information architecture outline
 
-### Day 3: Concepts and Direction
+---
+
+### Day 3: Concepts
 
 **Delegation** — agent generates direction options with tradeoffs; user makes the final choice  
 **Description** — ask for: design references, brand tone, layout or navigation constraints. Note gaps and continue.  
@@ -78,7 +62,9 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** 2–3 named directions with tradeoffs and a recommendation with reasoning
 
-### Day 4: Page and State Wireframes
+---
+
+### Day 4: Wireframes
 
 **Delegation** — agent produces low-fidelity screens; user reviews coverage and priorities  
 **Description** — ask for: which flows matter most, layout constraints, interaction priorities. Note gaps and continue.  
@@ -87,7 +73,9 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** low-fidelity wireframes for critical screens and states with annotations
 
-### Day 5: Visual System
+---
+
+### Day 5: Visual Design
 
 **Delegation** — agent defines the visual system and high-fidelity screens; user validates direction  
 **Description** — ask for: brand guidelines, accessibility requirements, existing design patterns. Note gaps and continue.  
@@ -96,7 +84,9 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** visual system (color, type, spacing, components) and high-fidelity screens for key views
 
-### Day 6: Validation and Edge Cases
+---
+
+### Day 6: Validation
 
 **Delegation** — agent reviews accessibility, missing states, and implementation risks; user prioritizes issues  
 **Description** — ask for: known edge cases, device targets, performance or legal constraints. Note gaps and continue.  
@@ -104,6 +94,8 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 **Diligence** — wait for the user to resolve or explicitly defer every open issue before handoff
 
 **Output:** validation log with accessibility findings, missing states, implementation risks, and deferred items
+
+---
 
 ### Day 7: Handoff
 
@@ -114,17 +106,13 @@ Prompting lives inside Description. The other three Ds — choosing the right wo
 
 **Output:** final handoff document with screen inventory, design decisions, data model, open questions, and build guidance
 
-## Required Deliverables
+---
 
-- one clear output per day
-- coverage for the core web experience
-- explicit assumptions and open questions
-- final handoff notes that an engineer can act on
+## Rules
 
-## Guardrails
-
-- do not skip days without explaining why
-- do not collapse discovery, structure, and execution into one step
-- do not produce generic design language without product context
-- do not assume a specific framework unless the user requests one
-- do not stall on missing information — note gaps as open questions and continue
+- keep the core web experience in scope
+- produce one clear output per day
+- end each day with a Discernment check and wait for confirmation before advancing
+- state assumptions and open questions explicitly; do not stall on missing information
+- do not use generic design language without product context
+- do not assume a specific framework unless the user asks for one
