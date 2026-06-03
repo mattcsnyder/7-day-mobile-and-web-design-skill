@@ -452,7 +452,90 @@ Last character message shows partial text with a softly pulsing accent-colored c
 
 ## Day 6: Validation and Security
 
-_Pending_
+### Accessibility Findings
+
+| Finding | Severity | Notes |
+|---|---|---|
+| Color contrast on atmospheric backdrops | High | Character name and descriptor sit over variable-darkness images — a text shadow or scrim behind the name block is required to guarantee WCAG AA (4.5:1) at all times |
+| Semi-transparent chat panel contrast | Medium | `rgba(8,8,16,0.82)` over the stage image — verify body text contrast passes in all per-character themes, especially lighter backdrops |
+| Touch targets | Medium | Prev/next carousel arrows and send button must be minimum 44×44px; arrows are hidden at rest — ensure they appear reliably on touch devices |
+| Screen reader — streaming text | Medium | Appending tokens to a live region requires `aria-live="polite"` on the character message container; without it, screen readers won't announce the response |
+| Focus management — chat open | Medium | When the chat panel fades in, focus must move to the input bar automatically; returning to the stage must restore focus to the carousel |
+| Keyboard navigation | Low | Mobile-first but desktop must be usable; carousel should respond to left/right arrow keys; chat input should be reachable via Tab |
+| iOS safe area insets | High | Input bar must account for `env(safe-area-inset-bottom)` on iPhones — fixed-bottom bars are a known iOS Safari pain point |
+| Virtual keyboard displacement | High | When the keyboard opens on mobile, the chat panel height must shrink to keep the input bar visible; use `visualViewport` resize listener, not `window.resize` |
+
+---
+
+### Missing States
+
+| State | Gap | Resolution |
+|---|---|---|
+| Carousel at first/last character | Does it wrap around or stop? | Define: wrap (continuous loop) or stop with disabled arrow |
+| Rapid taps on stage card | Multiple chat panel open triggers | Debounce — ignore taps while transition is in progress |
+| Very long character name | Overflow in stage lower third | Truncate with ellipsis; max 2 lines |
+| Very long message | Bubble height unconstrained | Let bubbles grow naturally; no max-height clamp needed in chat view |
+| localStorage quota exceeded | Silent write failure | Catch `QuotaExceededError`; trim oldest messages in thread, then retry |
+| Broken/missing backdrop image | Stage shows black void | Fallback: solid gradient using `--char-accent` color |
+| Character API unavailable at load | Roster can't populate | Show skeleton cards + retry; do not show empty screen silently |
+| Stream interrupted mid-response | Partial text frozen | Show inline error with retry at end of the partial bubble; do not discard the partial text |
+
+---
+
+### Security Review — Auth Headers
+
+| Header | Status | Notes |
+|---|---|---|
+| `Authorization: Bearer` | N/A | No auth at launch — no tokens issued |
+| Cookie flags (`Secure`, `HttpOnly`, `SameSite`) | N/A | No session cookies |
+| `Content-Security-Policy` | Required | CSP still needed — restrict `script-src` to self, block inline scripts. Character response content rendered in the DOM is an XSS vector if not escaped |
+| `X-Frame-Options` | Required | Set to `DENY` — no reason this app should be embeddable in a frame |
+| `X-Content-Type-Options` | Required | `nosniff` on all responses |
+| `Strict-Transport-Security` | Required if hosted | Enable HSTS if the app is served over a domain; not applicable for localhost-only |
+| `CORS` | Critical | The Ollama server must have CORS configured to accept requests only from the app's origin — **not `*`**. A misconfigured Ollama CORS policy exposes the local model to any site the user visits |
+
+---
+
+### Security Review — Standard Web Problems
+
+| Problem | Status | Notes |
+|---|---|---|
+| XSS | Risk present | Character responses from Ollama are rendered as text — must be HTML-escaped before inserting into the DOM. If using React with JSX, auto-escaping covers most cases, but `dangerouslySetInnerHTML` must never be used for character output |
+| CSRF | Low risk | No auth, no session cookies, no state-changing server requests from the web app. The Ollama call is a direct client → local server request — no CSRF surface |
+| Clickjacking | Mitigated by `X-Frame-Options` above | Set and forget |
+| Open redirects | Not applicable | No redirect flows in this app |
+| Sensitive data in URLs | Low risk | Character ID in the URL path is fine. Conversation content must never appear as a query parameter |
+| Auth error leakage | N/A | No auth |
+| Insecure direct object references | N/A | No user-owned server-side resources |
+| Rate limiting | Relevant | The Ollama server should rate-limit incoming requests if exposed beyond localhost. The app should debounce the send button to prevent rapid-fire submissions while a response is in-flight |
+| Prompt injection | New risk | Users can attempt to override the character's system prompt via message input (e.g. "Ignore previous instructions..."). Mitigate by prepending a non-overridable system instruction and treating user input as untrusted content in the prompt assembly |
+| localStorage data exposure | Low-medium | Conversation history in localStorage is readable by any script on the page. XSS on the app domain would expose all stored conversations. CSP and input sanitization are the primary defenses |
+
+---
+
+### Implementation Risks
+
+| Risk | Impact | Notes |
+|---|---|---|
+| Streaming SSE / chunked response parsing | High | Incomplete UTF-8 sequences at chunk boundaries will corrupt characters; use a `TextDecoder` stream reader, not naive string split |
+| `visualViewport` keyboard handling | High | iOS Safari virtual keyboard behavior is non-standard; test explicitly on iPhone Safari before shipping |
+| Backdrop image performance | Medium | Full-screen atmospheric images are large; use WebP, lazy-load off-screen carousel images, preload the adjacent character |
+| localStorage thread growth | Medium | Long conversations with many exchanges can approach localStorage limits (5–10MB). Implement a trim strategy (keep last N messages) before this becomes a user-facing failure |
+| Carousel preload strategy | Medium | Pre-rendering all character cards in DOM for swipe performance vs. lazy rendering — choose one and test on low-end devices |
+| Ollama URL configuration | Medium | Hardcoding the Ollama endpoint works for local dev but breaks for any hosted or shared deployment. Plan for a configurable endpoint (env var or settings screen) |
+| Per-character backdrop image loading | Low | Crossfade transition between characters will flash if the next image hasn't loaded; preload adjacent character images on idle |
+
+---
+
+### Deferred Items
+
+| Item | Deferred because |
+|---|---|
+| Character categories / filtering | Roster is small at launch; revisit when > 12 characters |
+| In-conversation character switch (swipe within chat) | Complexity outweighs value at launch; back-to-roster is sufficient |
+| Conversation export or share | No auth, no server — deferred to account phase |
+| Content moderation on character responses | Ollama is self-hosted; user controls the model. Flag for hosted deployment if that ever happens |
+| Accessibility audit (automated + manual) | Run axe-core and a manual VoiceOver pass before public launch |
 
 ---
 
