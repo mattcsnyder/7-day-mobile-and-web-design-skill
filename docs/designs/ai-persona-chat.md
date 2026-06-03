@@ -139,6 +139,14 @@ Roster navigation: tap-to-cycle carousel, not a grid. One character in focus at 
 
 ## Day 4: Wireframes
 
+**Day 4 amendments (post-confirmation):**
+- Screen 2 (Character Detail) removed — tapping a character goes straight to conversation
+- Stage is stripped of UI chrome — spotlight on the character, nothing else
+- Chat fades in as an overlay on the stage — the character backdrop stays visible behind it
+- No separate chat route — the stage IS the conversation space
+
+---
+
 ### Screen 1: Character Stage — Roster
 
 ```
@@ -147,25 +155,23 @@ Roster navigation: tap-to-cycle carousel, not a grid. One character in focus at 
 │                             │
 │        [AVATAR / ART]       │
 │       full-screen image     │
-│       atmospheric bg        │
+│   atmospheric backdrop      │
+│   spotlight / vignette      │
 │                             │
 │                             │
+│   ◄                    ►    │  ← tap to cycle; hidden until hover/touch
 │                             │
-│   ◄                    ►    │  ← tap to cycle prev/next
-│                             │
-│   ●  ○  ○  ○  ○            │  ← page dots (collapse to "3/12" at scale)
+│   ●  ○  ○  ○  ○            │  ← minimal page dots, bottom
 │                             │
 │   CHARACTER NAME            │
 │   One-line persona          │
 │                             │
-│  ┌─────────────────────┐   │
-│  │   Start Conversation │   │  ← or "Resume" if thread exists
-│  └─────────────────────┘   │
+│   [tap anywhere to enter]   │  ← no button; whole card is the tap target
 │                             │
 └─────────────────────────────┘
 ```
 
-Annotations: full-screen atmospheric image per character; swipe or tap arrows to cycle; CTA becomes "Resume" if a localStorage thread exists; tap avatar/name opens Character Detail.
+Annotations: no CTA button — the entire character card is tappable; arrows appear on touch/hover only; page dots are minimal; spotlight/vignette focuses the eye on the character.
 
 ---
 
@@ -357,7 +363,90 @@ Annotations: error appears inline in the thread, not as a modal; "Try Again" res
 
 ## Day 5: Visual Design
 
-_Pending_
+### Color System
+
+**App shell (base layer)**
+
+| Token | Value | Use |
+|---|---|---|
+| `--bg-stage` | `#080810` | Full-screen stage — near-black, blue-black tint |
+| `--overlay-chat` | `rgba(8,8,16,0.82)` | Chat panel — dark frosted overlay on stage art |
+| `--text-primary` | `#F0EEE8` | Main text — warm off-white |
+| `--text-muted` | `#7A7885` | Timestamps, secondary labels |
+| `--bubble-user` | `rgba(255,255,255,0.10)` | User message bubble — subtle glass |
+| `--bubble-char` | `transparent` | Character messages — no bubble, text only |
+| `--border-subtle` | `rgba(255,255,255,0.08)` | Dividers, input borders |
+| `--accent-default` | `#A78BFA` | Default accent — soft violet |
+
+**Per-character theming — each character has a signature accent and backdrop mood**
+
+| Character type | `--char-accent` | Backdrop feel |
+|---|---|---|
+| Philosopher / sage | `#7CB9E8` cool blue | Dark stone, muted atmospheric gradient |
+| Trickster / wit | `#F59E0B` amber | Warm candlelight glow, deep shadow |
+| Warrior / hero | `#EF4444` deep red | Smoke, ember, dark contrast |
+| Mystic / oracle | `#A78BFA` violet | Deep indigo, starfield, mist |
+| Scholar / advisor | `#34D399` sage green | Deep forest, low warm light |
+
+Accent is used for: character name on stage, streaming cursor, and subtle conversation highlights.
+
+### Typography
+
+| Role | Style | Size (mobile) | Weight |
+|---|---|---|---|
+| Character name (stage) | Display — wide tracking, uppercase | 28px | 300 light |
+| Character descriptor | Body sans | 14px | 400 |
+| Character speech | Text-weight serif (Lora / Georgia) | 16px | 400 |
+| User message | Body sans (Inter / DM Sans) | 16px | 400 |
+| Timestamps / labels | Mono or small sans | 11px | 400 |
+| Page counter | Mono | 12px | 400 |
+
+Pairing a humanist sans for UI and user messages with a serif for character speech reinforces that each character has a distinct voice.
+
+### Spacing and Layout
+
+| Token | Value | Use |
+|---|---|---|
+| `--space-chat-h` | 16px | Message horizontal inset |
+| `--space-bubble-gap` | 12px | Gap between consecutive messages |
+| `--space-turn-gap` | 24px | Gap between user/character turns |
+| `--chat-panel-height` | 65vh | Overlay height — character art visible above |
+| `--input-bar-height` | 56px | Docked input bar |
+| `--stage-name-bottom` | 96px | Character name from bottom of stage |
+
+### Key Transitions
+
+| Interaction | Transition |
+|---|---|
+| Tap character on stage | Stage dims 20%, chat panel fades up from bottom ~300ms ease-out |
+| Swipe to next character | Horizontal slide; backdrop crossfades; name fades in |
+| Character opening message | Fades in after panel settles, ~150ms delay |
+| Streaming tokens | No animation — append only; cursor pulses at 1s |
+| Dismiss chat | Chat fades down, stage brightens back |
+
+### High-Fidelity Screen Descriptions
+
+**Stage — Roster (resting)**
+Full-screen character art with a soft radial spotlight centered on the character. Edges bleed into near-black. Character name in wide-tracked uppercase in the lower third. One-line descriptor below in muted off-white. Tiny page dots at the very bottom. No buttons, no chrome.
+
+**Stage — Chat Open (overlay)**
+Character art visible in the top ~35% of screen, dimmed slightly. Bottom 65% is the chat panel: dark semi-transparent surface with subtle blur. Character speech in serif with accent-colored name label. User messages in right-aligned glass bubbles in sans. Input bar at the very bottom — text field and send icon only. No navbar.
+
+**Streaming State**
+Last character message shows partial text with a softly pulsing accent-colored cursor at the end. Input bar dimmed. Stage backdrop unchanged. Experience stays immersive throughout.
+
+### Component Inventory
+
+| Component | Notes |
+|---|---|
+| `StageCard` | Full-screen backdrop + name + descriptor; entire card is tap target |
+| `CarouselNav` | Prev/next arrows + page dots; hidden at rest, shown on touch |
+| `ChatPanel` | Overlay; semi-transparent; slides up on open |
+| `MessageBubble` | User variant (glass, right) + Character variant (no bubble, left) |
+| `StreamingCursor` | Accent-colored blinking cursor on last character message |
+| `InputBar` | Fixed bottom; text + send; disabled during streaming |
+| `InlineError` | Error card within thread; includes retry action |
+| `ClearConfirmSheet` | Bottom sheet for clear thread confirmation |
 
 ---
 
