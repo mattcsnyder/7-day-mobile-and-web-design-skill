@@ -730,13 +730,22 @@ Debounce the send button — disable on submit, re-enable only after stream comp
 
 ### Open Questions for Build
 
-| Question | Impact |
+| Question | Decision |
 |---|---|
-| Is the Ollama server always local, or will it be configurable per-user? | Determines whether `OLLAMA_BASE_URL` is env-var or a user-facing settings field |
-| Carousel wrap-around at first/last character — loop or stop? | Small UX decision; define before building `CarouselNav` |
-| localStorage message trim threshold — how many messages to keep per thread? | Suggest 100 messages as a starting limit |
-| Character system prompts — stored client-side in the character JSON, or fetched server-side only? | Storing system prompts client-side exposes them to users; serve from a backend if persona integrity matters |
-| First launch — is there a splash/onboarding screen, or straight to the stage? | Not designed; assume straight to stage for now |
+| Is the Ollama server always local, or will it be configurable per-user? | **Always local** — hardcode `http://localhost:11434`; no user-facing config needed |
+| Carousel wrap-around at first/last character — loop or stop? | **Wraps** — continuous loop; no disabled state on arrows |
+| localStorage message trim threshold? | **1000 messages per thread** — trim oldest 20% when `QuotaExceededError` is caught |
+| Character system prompts — client-side or server-side? | **Server-side only** — system prompts are never sent to the client. The backend assembles `[system prompt] + [persona layer] + [thread messages]` before forwarding to Ollama. Client receives only the character's `id`, `name`, `descriptor`, `accentColor`, `backdropUrl`, and `openingMessage` |
+
+**Persona + system prompt assembly (backend responsibility):**
+
+```
+[Safety system prompt]       ← non-overridable; applied to every character
+[Character persona prompt]   ← character-specific; server-side only
+[Thread messages]            ← from client localStorage, treated as untrusted content
+```
+
+The safety layer sits above the persona so it cannot be displaced by persona instructions or user prompt injection. The client never sees either prompt layer.
 
 ---
 
