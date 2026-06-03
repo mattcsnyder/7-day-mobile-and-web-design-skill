@@ -129,13 +129,229 @@ All routes public — no auth boundary at launch.
 
 ## Day 3: Concepts and Direction
 
-_See below_
+**Chosen direction: Stage**
+
+The character is the experience. Landing on the roster is a full-screen tap-to-cycle carousel — one character fills the screen at a time with an atmospheric visual, name, and one-line descriptor. Users tap left/right (or swipe) to cycle through characters and tap a CTA to enter their world. The conversation view is immersive and styled to the character's persona.
+
+Roster navigation: tap-to-cycle carousel, not a grid. One character in focus at a time. Page indicator shows position in the roster.
 
 ---
 
 ## Day 4: Wireframes
 
-_Pending Day 3 direction choice_
+### Screen 1: Character Stage — Roster
+
+```
+┌─────────────────────────────┐
+│                             │
+│                             │
+│        [AVATAR / ART]       │
+│       full-screen image     │
+│       atmospheric bg        │
+│                             │
+│                             │
+│                             │
+│   ◄                    ►    │  ← tap to cycle prev/next
+│                             │
+│   ●  ○  ○  ○  ○            │  ← page dots (collapse to "3/12" at scale)
+│                             │
+│   CHARACTER NAME            │
+│   One-line persona          │
+│                             │
+│  ┌─────────────────────┐   │
+│  │   Start Conversation │   │  ← or "Resume" if thread exists
+│  └─────────────────────┘   │
+│                             │
+└─────────────────────────────┘
+```
+
+Annotations: full-screen atmospheric image per character; swipe or tap arrows to cycle; CTA becomes "Resume" if a localStorage thread exists; tap avatar/name opens Character Detail.
+
+---
+
+### Screen 2: Character Detail
+
+```
+┌─────────────────────────────┐
+│  ←  Back                    │
+│                             │
+│        [AVATAR]             │
+│        large, centered      │
+│                             │
+│   CHARACTER NAME            │
+│   Short archetype label     │
+│                             │
+│  ─────────────────────────  │
+│                             │
+│   About                     │
+│   2-3 sentence persona      │
+│   description. Tone, style, │
+│   what they talk about.     │
+│                             │
+│   Sample line:              │
+│   "Opening quote from       │
+│    the character..."        │
+│                             │
+│  ┌─────────────────────┐   │
+│  │   Start Conversation │   │
+│  └─────────────────────┘   │
+│                             │
+└─────────────────────────────┘
+```
+
+Annotations: sample line gives users a feel for the voice before entering; back returns to Stage at the same carousel position.
+
+---
+
+### Screen 3: Active Conversation — Empty State (first visit)
+
+```
+┌─────────────────────────────┐
+│  ←     CHARACTER NAME   ··· │
+│  ─────────────────────────  │
+│                             │
+│        [small avatar]       │
+│                             │
+│   ┌─────────────────────┐  │
+│   │  "Opening message   │  │  ← character's auto-sent intro line
+│   │   from the char-    │  │
+│   │   acter. Sets tone."│  │
+│   └─────────────────────┘  │
+│                             │
+│                             │
+│  ─────────────────────────  │
+│  ┌────────────────────┐ [→] │
+│  │  Say something...  │     │
+│  └────────────────────┘     │
+└─────────────────────────────┘
+```
+
+Annotations: character sends opening message automatically on first load; `···` opens options menu (Clear Thread); input bar docked to bottom, keyboard pushes it up natively.
+
+---
+
+### Screen 4: Active Conversation — Mid-Thread
+
+```
+┌─────────────────────────────┐
+│  ←     CHARACTER NAME   ··· │
+│  ─────────────────────────  │
+│                             │
+│   ┌──────────────────────┐  │
+│   │  Character message   │  │  ← left-aligned
+│   └──────────────────────┘  │
+│                             │
+│        ┌──────────────────┐ │
+│        │   User message   │ │  ← right-aligned
+│        └──────────────────┘ │
+│                             │
+│   ┌──────────────────────┐  │
+│   │  Character reply...  │  │
+│   └──────────────────────┘  │
+│                             │
+│  ─────────────────────────  │
+│  ┌────────────────────┐ [→] │
+│  │  Say something...  │     │
+│  └────────────────────┘     │
+└─────────────────────────────┘
+```
+
+---
+
+### Screen 5: Streaming State
+
+```
+┌─────────────────────────────┐
+│  ←     CHARACTER NAME   ··· │
+│  ─────────────────────────  │
+│                             │
+│        ┌──────────────────┐ │
+│        │   User message   │ │
+│        └──────────────────┘ │
+│                             │
+│   ┌──────────────────────┐  │
+│   │  Partial response    │  │
+│   │  text here▌          │  │  ← blinking cursor, tokens appending
+│   └──────────────────────┘  │
+│                             │
+│  ─────────────────────────  │
+│  ┌────────────────────┐ [⏸] │  ← input disabled; send becomes stop
+│  │  (disabled)        │     │
+│  └────────────────────┘     │
+└─────────────────────────────┘
+```
+
+Annotations: input disabled while streaming; cursor removed when stream completes; character bubble expands naturally as tokens arrive.
+
+---
+
+### Screen 6: Error State — Ollama Unreachable
+
+```
+┌─────────────────────────────┐
+│  ←     CHARACTER NAME   ··· │
+│  ─────────────────────────  │
+│                             │
+│   [prior messages...]       │
+│                             │
+│   ┌──────────────────────┐  │
+│   │  Couldn't reach the  │  │
+│   │  server. Check your  │  │
+│   │  connection.         │  │
+│   │                      │  │
+│   │  [Try Again]         │  │
+│   └──────────────────────┘  │
+│                             │
+│  ─────────────────────────  │
+│  ┌────────────────────┐ [→] │
+│  └────────────────────┘     │
+└─────────────────────────────┘
+```
+
+Annotations: error appears inline in the thread, not as a modal; "Try Again" resends the last user message; prior messages remain visible.
+
+---
+
+### Screen 7: Clear Thread Confirmation
+
+```
+┌─────────────────────────────┐
+│                             │
+│         ┌───────────┐       │
+│         │  Clear    │       │
+│         │  this     │       │
+│         │  conver-  │       │
+│         │  sation?  │       │
+│         │           │       │
+│         │ This will │       │
+│         │ erase all │       │
+│         │ messages. │       │
+│         │           │       │
+│         │  [Cancel] │       │
+│         │  [Clear]  │       │  ← destructive action
+│         └───────────┘       │
+│                             │
+└─────────────────────────────┘
+```
+
+### Coverage
+
+| Flow | Screen |
+|---|---|
+| Browse characters (carousel) | 1 |
+| Preview character before chatting | 2 |
+| First conversation / empty state | 3 |
+| Active conversation mid-thread | 4 |
+| Streaming response | 5 |
+| Ollama error / retry | 6 |
+| Clear thread | 7 |
+| Resume prior conversation | 1 (Resume CTA) → 4 |
+
+### Open Questions
+
+- Does tapping a character on Stage go directly to chat, or always through the Detail screen first?
+- Can users swipe between characters from within the conversation view, or must they go back to roster?
+- Any character categories or filtering needed as the roster grows?
 
 ---
 
